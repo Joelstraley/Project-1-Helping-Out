@@ -29,8 +29,8 @@ For this project we will be using:
 
 
 ## Body Page 1:
-About Us – Description 
-For User: “How do you want to help? “
+- About Us – Description 
+- For User: “How do you want to help?“
 
 ## Clicks: 
 
