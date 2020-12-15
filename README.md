@@ -28,7 +28,7 @@ For this project we will be using:
 - Contact: Our LinkedIn URL / GitHub URL
 
 
-## Body Page 1:
+## Body:
 - About Us – Description 
 - For User: “How do you want to help?“
 
