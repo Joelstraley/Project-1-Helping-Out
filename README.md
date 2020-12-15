@@ -22,10 +22,10 @@ For this project we will be using:
 
 
 ## Icon/logo & Navbar (Sticky):
-Home: Brings you to the top of the homepage
-My Favorites: List of users favorite charities 
-About us: The purpose / Our mission / for this app
-Contact: Our LinkedIn URL / GitHub URL
+- Home: Brings you to the top of the homepage
+- My Favorites: List of users favorite charities 
+- About us: The purpose / Our mission / for this app
+- Contact: Our LinkedIn URL / GitHub URL
 
 
 ## Body Page 1:
