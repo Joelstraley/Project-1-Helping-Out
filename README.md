@@ -14,10 +14,10 @@ Fighting Poverty API
 Red Cross blood donation API
 
 # Division:
-Kristina- Front-end 
-Genis- Front-end
-Joel- Back-end
-Gillian- Back-end
+- Kristina- Front-end 
+- Genis- Front-end
+- Joel- Back-end
+- Gillian- Back-end
 
 ----------------------------------------------------
 
