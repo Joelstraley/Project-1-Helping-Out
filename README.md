@@ -1,7 +1,5 @@
 # Project-1-Helping-Out
 
-Proposal
-
 # Description:
 In this project we intend to build an app that helps connect people who want to help their local communities, with local foodbank and blood drive organizations that need their help. Whether the user wants to volunteer time, money, or direct resources to the food banks in their area, we want to help make it easier for them to do it.
 
