@@ -24,18 +24,18 @@ Gillian- Back-end
 # Initial Planning: 
 
 
-# Icon/logo & Navbar (Sticky):
+## Icon/logo & Navbar (Sticky):
 Home: Brings you to the top of the homepage
 My Favorites: List of users favorite charities 
 About us: The purpose / Our mission / for this app
 Contact: Our LinkedIn URL / GitHub URL
 
 
-# Body Page 1:
+## Body Page 1:
 About Us – Description 
 For User: “How do you want to help? “
 
-# Clicks: 
+## Clicks: 
 
 (Icon + enlarge/color) Donte Blood - (Icon + enlarge/color) Donte Food -(Icon + enlarge/color) Donte Time
 
@@ -43,16 +43,16 @@ Zip Code Appears & Radius (Dropdown)
 
 After user inputs zip code, a modal will appear with a list of all the charities in their neighborhood.
 
-# Users Helping:
+## Users Helping:
 Pictures + some captions 
 
-# Modal:
+## Modal:
 Will pop up once the user has inserted their Zip Code and Radius – required fields
 In boxed sections to keep it organized with Heart Feature on the side
 Once a user clicks the heart it will automatically be stored and placed inside the My Favorites Page --- so this will need to redirect to a new page to keep It organized 
 
 
-# Footer:
+## Footer:
 Our LinkedIn URL / GitHub URL
 
 Social Media Tags
