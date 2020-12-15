@@ -6,10 +6,9 @@ In this project we intend to build an app that helps connect people who want to 
 When the user accesses the app, they will be asked if they would rather contribute by donating money, donating food and blood or volunteering their time. They will then be asked for their zip code and travel radius. After they finish inputting their criteria, they will be presented with a list of the foodbanks within their areas that are accepting donations and volunteers.
 
 # API’s:
-For this project we will be using the
-
-Fighting Poverty API
-Red Cross blood donation API
+For this project we will be using: 
+- Fighting Poverty API
+- Red Cross blood donation API
 
 # Division:
 - Kristina- Front-end 
