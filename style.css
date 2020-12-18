@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: #d9dcd6;
+    background-color: white;
 }
 
 /* Top Nav Bar */
@@ -40,7 +40,7 @@ body {
 }
 
 a {
-    color: #ffffff;
+    color: black;
     text-decoration: none;
 }
 
@@ -66,8 +66,6 @@ p {
     margin-left: 20px;
 }
 
-
-
 /* Aside */
 .asidestyle {
     margin-right: 20px;
@@ -90,4 +88,15 @@ p {
 
 .footer h2 {
     font-size: 20px;
+}
+
+button{
+    border-radius: 12px;
+    width: 80%;
+    background-color: lavender;
+    padding: 45px;
+    text-align:center;
+    margin: 20px;
+    border: 1px;
+    opacity: 70%;
 }
