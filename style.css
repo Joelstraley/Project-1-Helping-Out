@@ -116,6 +116,7 @@ nav {
     line-height: 5rem;
     background-color: rgba(0, 0, 0, .4);
     margin-bottom: 20px;
+
 }
 
 #logo {
@@ -273,7 +274,7 @@ button{
     margin: 16px;
     margin-left: 70px;
     border: 1px;
-    opacity: 70%;
+    opacity: 80%;
 }
 button:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
@@ -281,6 +282,24 @@ button:hover {
 
 /* Nav + Home End */
 
+
+/* Aside Page */
+.content {
+    width: 75%;
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.asidestyle {
+    margin-right: 20px;
+    padding: 20px;
+    clear: both;
+    float: right;
+    width: 20%;
+    height: 100%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    /* background-color: ; */
+}
 
 /* RESPONSIVE */
 
@@ -296,7 +315,7 @@ button:hover {
     }
     .nav {
         display: flex;
-        padding: 2rem 10rem 0;
+        padding: 0.5rem 10rem 0;
         justify-content: space-between;
     }
     #logo {
