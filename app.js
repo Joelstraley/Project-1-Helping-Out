@@ -1,23 +1,4 @@
 $(document).ready(function(){
-}); 
-
-
-$('.burger').on('click', function() {
-    $(this).toggleClass('active');
-    $('.overlay').toggleClass('burger-open');
-});
-
-
-$('nav a').on('click', function() {
-    $('.burger').removeClass('active');
-    $('overlay').removeClass('burger-open');
-});
-
-
-
-
-
-
 
 
 // step 1: use maps javascript to create a basic map using the latitude and longitude coordinates for which ever location in order to test whether the map zeros into the location. the let variable MUST be changed depending on the location in oder to best track which static location we are performing the test on.  
@@ -27,9 +8,9 @@ let autocomplete;
 let marker= [];
 let charitiesApi= [];
 let charityGeoCodeResults = [];
-//charity navigator
-$(document).ready(function(){
+
 var orgname = $('#orgname'); 
+
 //*  CHARITY NAVIGATOR 
 var cnAPIID = "29acb795";
 var cnAPIKEY = "04b276e51b8c538e2a38bb533518a83d";
@@ -64,7 +45,7 @@ function runQuery(cnURL){
             console.log(place.geometry.location)
             new google.maps.Marker({
                 map,
-
+                ///title// 
                 position: place.geometry.location,
 
             });
@@ -121,12 +102,17 @@ function getZipFood() {
     $("#bloodButton").css("display","none")
     $("#foodButton").css("display","none")
     $("#timeButton").css("display","none")
+    $(".footer").text(" ")
+    $(".footer").css("padding","100px 1000px")
     $("#modalBox").css("display", "grid")
     $("#modalBox").html("")
-    $("#modalBox").html("")
-
+    $("#modalBox").html(`<div class="ui action input" id="zipBox">
+    <input type="text" placeholder="Enter Zip Code..." id="searchInput">
+    <button class="ui button" id="searchBtn"><i class="inverted circular search link icon"></i></button>
+  </div>`);
     
 } 
+
 
 function getZipBlood() {
     $("#bloodButton").css("display","none")
@@ -135,9 +121,9 @@ function getZipBlood() {
     $("#modalBox").css("display", "grid")
     $("#modalBox").html("")
     $("#modalBox").html("")
-    
-   
+       
 }
+
 
 function getZipTime() {
     $("#bloodButton").css("display","none")
@@ -151,24 +137,22 @@ function getZipTime() {
 }
 
 
-
-
-
-$("#bloodButton").on("click",getZip);
-$("#foodButton").on("click", getZip);
-$("#timeButton").on("click", getZip);
-
-
-
-
-
-
-
-
-
-
+$('.burger').on('click', function() {
+    $(this).toggleClass('active');
+    $('.overlay').toggleClass('burger-open');
 });
-    
 
 
-            
+$('nav a').on('click', function() {
+    $('.burger').removeClass('active');
+    $('overlay').removeClass('burger-open');
+});
+
+$("#bloodButton").on("click",getZipBlood);
+$("#foodButton").on("click", getZipFood);
+$("#timeButton").on("click", getZipTime);
+
+
+})
+
+
