@@ -35,7 +35,7 @@ $("#searchBtn").on('click', function(){
 
 var oapiKey = "74f377d05678f8cb039e81aaaa6a9f9c";
 
-var orghunterURL = "https://data.orghunter.com/v1/charitysearch?user_key=" + oapiKey + "&ein=590774235" ;
+var orghunterURL = "http://data.orghunter.com/v1/charitysearch?user_key=" + oapiKey + "&ein=590774235" ;
 
 function runQuery(ohURL){
     $.ajax({url: ohURL,
