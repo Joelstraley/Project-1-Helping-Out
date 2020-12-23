@@ -226,16 +226,6 @@ nav {
     margin-top: 2.5rem;
 }
 
-/* .main-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 1rem 2rem #86c7e3;
-}
-
-.main-btn:active {
-    transform: translateY(1);
-    box-shadow: none;
-}  */
-
 .media {
     position: absolute;
     right: -10px;
@@ -282,7 +272,6 @@ button:hover {
 
 /* Nav + Home End */
 
-
 /* Aside Page */
 .content {
     width: 75%;
@@ -299,6 +288,81 @@ button:hover {
     height: 100%;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     /* background-color: ; */
+}
+
+
+/* Meet the Team */
+.footer {
+    display: inline;
+    background-color: #212121;
+    position: inherit;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 0;
+    align-self: center;
+    align-content: center;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+/* .footer {
+    display: flexbox;
+    width: 100%;
+    align-self: center;
+    align-content: center;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+} */
+
+.row {
+    justify-content: space-between;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.column {
+    float: left;
+    width: 22%;
+    margin-bottom: 16px;
+    padding: 0 8px;
+}
+  
+.card {
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+}
+  
+.container {
+    padding: 0 16px;
+    padding-top: 7%;
+}
+  
+.container::after, .row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+  
+.title {
+    color: grey;
+}
+  
+.button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+}
+  
+.button:hover {
+    background-color: #555;
 }
 
 /* RESPONSIVE */
