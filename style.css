@@ -292,6 +292,30 @@ button:hover {
 
 
 /* Meet the Team */
+.footer {
+    display: inline;
+    background-color: #212121;
+    position: inherit;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 0;
+    align-self: center;
+    align-content: center;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+/* .footer {
+    display: flexbox;
+    width: 100%;
+    align-self: center;
+    align-content: center;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+} */
+
 .row {
     justify-content: space-between;
     margin-left: 2%;
