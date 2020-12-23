@@ -1,5 +1,7 @@
 body {
   margin: 40px;
+  background-color: #81b6d9;
+  background-image: url(/assets/background1.jpg);
 }
 
 .wrapper {
@@ -7,37 +9,47 @@ body {
     grid-gap: 10px;
     grid-template-columns: [col] 100px [col] 100px [col] 100px [col] 100px  ;
     grid-template-rows: [row] auto [row] auto [row] ;
-    background-color: #fff;
-    color: #444;
   }
 
   .box {
-    background-color: #444;
+    background-color :rgb(225, 225, 225);
     color: #fff;
     border-radius: 5px;
     padding: 20px;
     font-size: 150%;
-
   }
 
   .box1 {
-    grid-column: col 2 / span 3 ;
+    grid-column: col 2 / span 4;
     grid-row: row ;
   }
   .box2 {
-    grid-column: col 2 / span 3 ;
+    grid-column: col 2 / span 4 ;
     grid-row: row 2;
   }
   .box3 {
-    grid-column: col 2 / span 3 ;
+    grid-column: col 2 / span 4 ;
     grid-row: row 3 ;
   }
   .box4 {
-    grid-column: col 2 / span 3 ;
+    grid-column: col 2 / span 4;
     grid-row: row 4 ;
   }
 
   .box5 {
-    grid-column: col 2 / span 3 ;
+    grid-column: col 2 / span 4 ;
     grid-row: row 5;
   }
+
+  .like {
+    background-color: transparent;
+
+  }
+
+.like button {
+  cursor: pointer;
+}
+
+.like button:hover {
+  color: red;
+}
