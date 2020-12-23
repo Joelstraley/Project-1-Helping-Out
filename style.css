@@ -252,6 +252,10 @@ nav {
     transform: rotate(270deg);
 }
 
+.content button {
+    cursor: pointer;
+}
+
 
 /* style for main buttons */
 
