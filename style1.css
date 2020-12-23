@@ -1,0 +1,43 @@
+body {
+  margin: 40px;
+}
+
+.wrapper {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: [col] 100px [col] 100px [col] 100px [col] 100px  ;
+    grid-template-rows: [row] auto [row] auto [row] ;
+    background-color: #fff;
+    color: #444;
+  }
+
+  .box {
+    background-color: #444;
+    color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 150%;
+
+  }
+
+  .box1 {
+    grid-column: col 2 / span 3 ;
+    grid-row: row ;
+  }
+  .box2 {
+    grid-column: col 2 / span 3 ;
+    grid-row: row 2;
+  }
+  .box3 {
+    grid-column: col 2 / span 3 ;
+    grid-row: row 3 ;
+  }
+  .box4 {
+    grid-column: col 2 / span 3 ;
+    grid-row: row 4 ;
+  }
+
+  .box5 {
+    grid-column: col 2 / span 3 ;
+    grid-row: row 5;
+  }
