@@ -252,6 +252,10 @@ nav {
     transform: rotate(270deg);
 }
 
+.content button {
+    cursor: pointer;
+}
+
 
 /* style for main buttons */
 
@@ -466,9 +470,16 @@ img {
 }
 
 .result-modal{
-
 /* position:fixed; */
 z-index:1;
-display: show;
 }
 
+#zipBox {
+    display: flex;
+    align-items: center;
+    margin: 1000px; 
+}
+
+#searchBtn{
+    
+}
