@@ -16,9 +16,9 @@ html {
 }
 
 p {
-    line-height:  0.5;
-    letter-spacing: 0.2px;
-    font-weight: 100;
+    line-height:  1.5;
+    letter-spacing: 1px;
+    font-weight: 300;
     font-family: 'Lato', sans-serif; 
 }
 
@@ -115,15 +115,15 @@ nav {
     position: relative;
     line-height: 5rem;
     background-color: rgba(0, 0, 0, .4);
-    margin-bottom: 0px;
+    margin-bottom: 20px;
 
 }
 
 #logo {
     display: none;
     text-transform: capitalize;
-    font-size: 10px;
-    /* font-weight: 300; */
+    font-size: 2rem;
+    font-weight: 300;
     text-decoration: none;
     color: white;
     font-family: 'Poppins', sans-serif;
@@ -252,10 +252,6 @@ nav {
     transform: rotate(270deg);
 }
 
-.content button {
-    cursor: pointer;
-}
-
 
 /* style for main buttons */
 
@@ -309,9 +305,8 @@ button:hover {
     text-align: center;
     align-items: center;
     justify-content: center;
-    width: 100%;
   }
-.footer {
+/* .footer {
     display: flexbox;
     width: 100%;
     align-self: center;
@@ -319,13 +314,12 @@ button:hover {
     text-align: center;
     align-items: center;
     justify-content: center;
-}
+} */
 
-.stylefooter{
+.row {
     justify-content: space-between;
     margin-left: 2%;
     margin-right: 2%;
-    height: 10%;
 }
 
 .column {
@@ -337,14 +331,7 @@ button:hover {
   
 .card {
     text-align: center;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1)
-
-}
-
-img {
-    max-width: 50%;
-    height: auto;
-    margin-top: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
 }
   
 .container {
@@ -423,7 +410,6 @@ img {
     grid-gap: 10px;
     grid-template-columns: [col] 100px [col] 100px [col] 100px [col] 100px  ;
     grid-template-rows: [row] auto [row] auto [row] ;
-
   }
 
   .box {
@@ -470,16 +456,8 @@ img {
 }
 
 .result-modal{
+
 /* position:fixed; */
 z-index:1;
-}
-
-#zipBox {
-    display: flex;
-    align-items: center;
-    margin: 1000px; 
-}
-
-#searchBtn{
-    
+display: show;
 }
