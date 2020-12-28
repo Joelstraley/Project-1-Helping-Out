@@ -469,15 +469,16 @@ img {
   color: red;
 }
 
-.result-modal{
+#modalBox{
 /* position:fixed; */
 z-index:1;
+display: none;
 }
 
 #zipBox {
     display: flex;
     align-items: center;
-    margin: 1000px; 
+  //  margin: 1000px; //  
 }
 
 #searchBtn{
