@@ -112,7 +112,6 @@ $(document).ready(function(){
           <i class="search icon"></i>
         </button>
             </div>`)
-$("#zipBox").css("justify-items", "center")
             //change to "Enter City" above if we go with City search for Blood banks
          $("#bloodSearchBtn").on('click', function(event){
                 searchInput = $("#bloodZipInput").val();
