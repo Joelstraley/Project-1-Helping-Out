@@ -56,8 +56,7 @@ $(document).ready(function(){
     }
 
 // Google map
-    let map;
-    
+   // let map;
     const sanFran= { lat: 37.7576171, lng: -122.5776844 }
     function initMap() {
         map = new google.maps.Map($("#map"), {
@@ -107,25 +106,23 @@ $(document).ready(function(){
         $(".footer").css("padding","100px 1000px")
         $("#modalBox").css("display", "grid")
         $("#modalBox").html("")
-        $("#modalBox").html(`<div class="ui action input">
+        $("#zipBox").html(`<div class="ui action input">
         <input type="text" placeholder="Enter Zip code..." id="bloodZipInput">
         <button class="ui icon button" id="bloodSearchBtn">
           <i class="search icon"></i>
         </button>
-      </div>`)
+            </div>`)
             //change to "Enter City" above if we go with City search for Blood banks
          $("#bloodSearchBtn").on('click', function(event){
-                alert("hi!");
                 searchInput = $("#bloodZipInput").val();
                 console.log($("#bloodZipInput").val());
                     var cnBloodURL = navigatorURL + "&zip=" + searchInput;
-
-   
-
                     runQuery(cnBloodURL);
                 });           
     }
     
+
+
     function getZipFood() {
         $("#bloodButton").css("display","none")
         $("#foodButton").css("display","none")
@@ -134,7 +131,7 @@ $(document).ready(function(){
         $(".footer").css("padding","100px 1000px")
         $("#modalBox").css("display", "grid")
         $("#modalBox").html("")
-        $("#modalBox").html(`<div class="ui action input">
+        $("#zipBox").html(`<div class="ui action input">
         <input type="text" placeholder="Enter Zip code..." id="foodZipInput">
         <button class="ui icon button" id="foodSearchBtn">
           <i class="search icon"></i>
@@ -143,7 +140,7 @@ $(document).ready(function(){
         $("#modalBox").css("justify", "center")
         $("#foodSearchBtn").on('click', function(event){
                 searchInput = $("#foodZipInput").val();
-                    var cnFoodURL = navigatorURL + "&zip=" + searchInput;
+                    var cnFoodURL = navigatorURL + "&search=food" + "&zip=" + searchInput;
                     runQuery(cnFoodURL);
                 });
     } 
@@ -158,7 +155,7 @@ $(document).ready(function(){
         $(".footer").css("padding","100px 1000px")
         $("#modalBox").css("display", "grid")
         $("#modalBox").html("")
-        $("#modalBox").html(`<div class="ui action input">
+        $("#zipBox").html(`<div class="ui action input">
         <input type="text" placeholder="Enter Zip code..." id="timeZipInput">
         <button class="ui icon button" id="timeSearchBtn">
           <i class="search icon"></i>
@@ -168,7 +165,6 @@ $(document).ready(function(){
         $("#timeSearchBtn").on('click', function(event){
             searchInput = $("#timeZipInput").val();
             var cnTimeURL = navigatorURL + "&classification=" + "Charitable+Organization" + "&zip=" + searchInput;
-            &classification=Charitable+Organization
                     runQuery(cnTimeURL);
                 });
         
@@ -181,15 +177,33 @@ $(document).ready(function(){
         $.ajax({url: cnFoodURL,
         method: "GET"})
         .then(function(cnFoodData){
-            
+
             orgname.text(cnFoodData[0].charityName);
             for (let i= 0; i < cnFoodData.length; i++) {
                 if(!cnFoodData[i].mailingAddress.streetAddress1.includes('PO')){
                     charitiesApi.push(cnFoodData[i])
                     
-                }
+                } console.log(cnFoodData)
             }
-            var geoCodeURL = 'https://maps.google.com/maps/api/geocode/json?key=&address='
+           $("#zipBox").html("")
+           $("modalBox").css("Display","Grid")
+            $("#modalBox").html(`<div class="ui active modal" id= "modalBox">   
+            <div class="wrapper">
+                       <div class="box like">
+                           <button><i class="fas fa-heart"></i></button>
+                       </div>
+                           <div class="box box1">
+                           <section>
+                               <p id="orgName">TEST</p>
+                           </section>
+                       </div>`)
+
+
+
+
+
+
+            /* var geoCodeURL = 'https://maps.google.com/maps/api/geocode/json?key=&address='
             for (let j= 0; j < 5; j++) {
                 var address= charitiesApi[j].mailingAddress.streetAddress1 + "," + charitiesApi[j].mailingAddress.city + "," + charitiesApi[j].mailingAddress.stateOrProvince + "," + charitiesApi[j].mailingAddress.postalCode;
                 var charitiesGeoCode=  geoCodeURL + address;
@@ -204,56 +218,18 @@ $(document).ready(function(){
             console.log("hi", charityGeoCodeResults)
             for(let k = 0; k < charityGeoCodeResults.length; k++){
                 let place = charityGeoCodeResults[k];
-                console.log(place.geometry.location)
                 new google.maps.Marker({
                     map,
                     ///title// 
                     position: place.geometry.location,
     
                 });
-            }
-        });
+            } */ 
+        }); 
     
     }
 
-// Google map
-    let map;
-    
-    const sanFran= { lat: 37.7576171, lng: -122.5776844 }
-    function initMap() {
-        map = new google.maps.Map($("#map"), {
-            center: sanFran,
-            zoom: 10,
-    
-        });
-        // Info windows will shows the list of results from the search
-        infoWindow = new google.maps.InfoWindow({
-            content: $("#info-content"),
-        });
-        // for the search box to help the user complete their cities search
-        autocomplete = new google.maps.places.Autocomplete(
-        $("#autocomplete"),
-            {
-                types: ["(cities)"],
-                componentRestrictions: countryRestrict,
-            }
-        );
-      
-       //static location search     
-        const service = new google.maps.places.PlacesService(map);
-        service.nearbySearch({location: sanFran, radius: 16093.4, type: "hospital", keyword: "bloodbank", setting: "open now"},function (results, status, pagination){
-            console.log(results)
-            for(let i = 0; i < results.length; i++){
-                let place = results[i]
-                new google.maps.Marker({
-                    map,
-                    title: place.name,
-                    position: place.geometry.location,
-                });
-            }
-        })
-    } 
-    
+
 
 
 
@@ -277,5 +253,3 @@ $(document).ready(function(){
     
     
     })
-
-
