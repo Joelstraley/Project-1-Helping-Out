@@ -105,7 +105,7 @@ $(document).ready(function(){
         $("#timeButton").css("display","none")
         $(".footer").text(" ")
         $(".footer").css("padding","100px 1000px")
-        $("#modalBox").css("display", "grid")
+        // $("#modalBox").css("display", "grid")
         $("#modalBox").html("")
         $("#modalBox").html(`<div class="ui action input">
         <input type="text" placeholder="Enter Zip code..." id="bloodZipInput">
