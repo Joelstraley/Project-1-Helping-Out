@@ -1,7 +1,6 @@
 body {
   margin: 40px;
   background-color: #81b6d9;
-  background-image: url(/assets/background1.jpg);
 }
 #modalBox {
     display:none;

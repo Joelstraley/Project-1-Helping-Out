@@ -116,7 +116,6 @@ nav {
     line-height: 5rem;
     background-color: rgba(0, 0, 0, .4);
     margin-bottom: 0px;
-
 }
 
 #logo {
@@ -128,6 +127,7 @@ nav {
     color: white;
     font-family: 'Poppins', sans-serif;
     font-size: 3rem;
+    font-family: 'Audiowide', cursive;
 }
 
 .overlay {
