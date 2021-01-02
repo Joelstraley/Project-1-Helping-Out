@@ -1,6 +1,5 @@
 $(document).ready(function(){
 
-
     // step 1: use maps javascript to create a basic map using the latitude and longitude coordinates for which ever location in order to test whether the map zeros into the location. the let variable MUST be changed depending on the location in oder to best track which static location we are performing the test on.  
     
     let infoWindow;
