@@ -13,6 +13,7 @@ html {
     font-size: 10px;
     scroll-behavior: smooth;
     letter-spacing: 1px;
+    background-color: #fff;
 }
 
 p {
@@ -32,7 +33,7 @@ a {
 header {
     display: flex;
     width: 100%;
-    height: 125vh;
+    height: 80vh;
     background: linear-gradient(rgba(16,29,44,.6), rgba(16,29,44,.6)),
                 url(assets/mainImg.jpg) center no-repeat;
     background-size: cover;
@@ -41,13 +42,6 @@ header {
     position: relative;
     /* background-attachment: fixed; */
 }
-
-/* 
-header > .container {
-    position: relative;
-    height: 100%;
-    padding: 0;
-} */
 
 /* burger creation here */
 .burger {
@@ -294,6 +288,10 @@ button:hover {
     /* background-color: ; */
 }
 
+.content, 
+.asidestyle {
+    margin-bottom: 0%;
+}
 
 /* Meet the Team */
 .footer {
@@ -309,9 +307,13 @@ button:hover {
     text-align: center;
     align-items: center;
     justify-content: center;
-    width: 100%;
   }
-.footer {
+/* 
+  .horizontal {
+      margin-top: 100vh;
+      padding-top: 100vh;
+  } */
+/* .footer {
     display: flexbox;
     width: 100%;
     align-self: center;
@@ -319,7 +321,7 @@ button:hover {
     text-align: center;
     align-items: center;
     justify-content: center;
-}
+} */
 
 .stylefooter{
     justify-content: space-between;
@@ -377,46 +379,6 @@ img {
 .button:hover {
     background-color: #555;
 }
-
-/* RESPONSIVE */
-
-@media screen and (max-width: 1200px) {
-    #logo {
-        display: block;
-    }
-}
-
-@media screen and (min-width: 1200px) {
-    .burger {
-        display: none;
-    }
-    .nav {
-        display: flex;
-        padding: 0.5rem 10rem 0;
-        justify-content: space-between;
-    }
-    #logo {
-        display: block;
-    }
-    .nav .overlay {
-        position: initial;
-        background: none;
-        opacity: initial;
-        transform: initial;
-    }
-    .nav .overlay ul {
-        flex-direction: row;
-        list-style: none;
-        margin-top: 2px;
-    }
-    .nav .overlay ul li a {
-        font-size: 1.5rem;
-        letter-spacing: 1px;
-        margin-right: -1px;
-        padding: 0 2rem;
-    }
-}
-
 
 .wrapper {
     display: grid;
@@ -476,3 +438,111 @@ img {
    display: none;
     }
     
+
+/* Favorites Page */
+
+.myFavorites {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    background-color: #61bbe1;
+    margin-bottom: 3%;
+
+}
+
+.favContainer {
+    display: inline;
+    width: 85%;
+    /* height: 50%; */
+    background-color: transparent;
+    align-self: center; 
+}
+  
+.favBox {
+    background-color: transparent;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 150%;
+}
+
+.favBox1 {
+    grid-column: col 2 / span 4;
+    grid-row: row ;
+}
+.favBox2 {
+    grid-column: col 2 / span 4 ;
+    grid-row: row 2;
+}
+.favBox3 {
+    grid-column: col 2 / span 4 ;
+    grid-row: row 3 ;
+}
+.favBox4 {
+    grid-column: col 2 / span 4;
+    grid-row: row 4 ;
+}
+
+.favBox5 {
+    grid-column: col 2 / span 4 ;
+    grid-row: row 5;
+}
+
+.favBox input {
+    display: flex;
+    width: 100%;
+    height: 100px;
+    justify-content: flex-start;
+    align-self: flex-start;
+    border: 3px solid #555;
+}
+
+/* input[type=text]:focus {
+  } */
+
+.favBox input::placeholder {
+    padding-left: 30px;
+}
+
+
+/* RESPONSIVE */
+@media screen and (max-width: 1200px) {
+    #logo {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .burger {
+        display: none;
+    }
+    .nav {
+        display: flex;
+        padding: 0.5rem 10rem 0;
+        justify-content: space-between;
+    }
+    #logo {
+        display: block;
+    }
+    .nav .overlay {
+        position: initial;
+        background: none;
+        opacity: initial;
+        transform: initial;
+    }
+    .nav .overlay ul {
+        flex-direction: row;
+        list-style: none;
+        margin-top: 2px;
+    }
+    .nav .overlay ul li a {
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+        margin-right: -1px;
+        padding: 0 2rem;
+    }
+}
+
+/*  */
+
