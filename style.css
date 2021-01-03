@@ -511,9 +511,6 @@ img {
     border: 3px solid #555;
 }
 
-/* input[type=text]:focus {
-  } */
-
 .favBox input::placeholder {
     padding-left: 30px;
 }
