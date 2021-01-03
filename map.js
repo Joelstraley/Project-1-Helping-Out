@@ -6,14 +6,24 @@ let map;
 let infowindow;
 let autocomplete;
 let marker= [];
-// start with hard coded latLng to sanfrancisco
-const sanFran= { lat: 37.7576171, lng: -122.5776844 }
+// try to make restrict the search to the USA
+const countryRestrict = { country: "us" };
+const countries = {
+    us: {
+        center: { lat: 37.1, lng: -95.7 },
+        zoom: 3,
+    },
+}
+//try to make it dynamic and restricted to the US. Kept the zoom and center; added more controls
 function initMap() {
     map = new google.maps.Map(document.getElementById("map"), {
-        center: sanFran,
-        zoom: 10,
-        
-    });
+        zoom: countries["us"].zoom,
+        center: countries["us"].center,
+        mapTypeControl: false,
+        panControl: false,
+        zoomControl: false,
+        streetViewControl: false,
+    })
     // Info windows will shows the list of results from the search
     infoWindow = new google.maps.InfoWindow({
         content: document.getElementById("info-content"),
