@@ -114,7 +114,6 @@ $(document).ready(function(){
             //change to "Enter City" above if we go with City search for Blood banks
          $("#bloodSearchBtn").on('click', function(event){
                 searchInput = $("#bloodZipInput").val();
-                console.log($("#bloodZipInput").val());
                     var cnBloodURL = navigatorURL + "&zip=" + searchInput;
                     runQueryBlood(cnBloodURL);
                 });           
@@ -137,7 +136,6 @@ $(document).ready(function(){
         </button>
       </div>
       </div>`)
-        $("#modalBox").css("justify", "center")
         $("#foodSearchBtn").on('click', function(event){
                 searchInput = $("#foodZipInput").val();
                     var cnFoodURL = navigatorURL + "&search=food" + "&zip=" + searchInput;
@@ -163,20 +161,13 @@ $(document).ready(function(){
         </button>
       </div>
       </div>`)
-        $("#modalBox").css("justify", "center")
         $("#timeSearchBtn").on('click', function(event){
             searchInput = $("#timeZipInput").val();
-            console.log(searchInput)
             var cnTimeURL = navigatorURL + "&search=social" + "&zip=" + searchInput;
                     runQueryTime(cnTimeURL);
         });
                 };
 
-
-
-    
-
-  
 
 
     function runQueryBlood(cnBloodURL){
@@ -247,17 +238,22 @@ function bloodResultsModal(cnBloodData){
         });
     }
 
+
 function foodResultsModal(cnFoodData){
     document.querySelector('#modalBox').innerHTML += `
     <div class="scrolling content">
     <div class="box like">
-    <button><i class="fas fa-heart"></i></button>
+    <button><i class="fas fa-heart" id="charitySave"></i></button>
 </div><h2 id="charityname">${cnFoodData.charityName}</h2></div></div>
       <p>${cnFoodData.irsClassification.nteeClassification}</p>
       <p>Street Address: ${cnFoodData.mailingAddress.streetAddress1}</p>
     </div>`
     $('#modalBox').css("text-align","center")
+    localStorage.setItem("Name",cnFoodData.charityName)
+    myFavorites(cnFoodData);
 }
+
+
 
     
 
