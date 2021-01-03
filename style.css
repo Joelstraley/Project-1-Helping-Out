@@ -441,10 +441,10 @@ img {
 
 /* Favorites Page */
 
-.myFavorites {
+#myFavorites {
     width: 100%;
     height: 80%;
-    display: flex;
+    display: none;
     justify-content: center;
     background-color: #61bbe1;
     margin-bottom: 3%;
@@ -503,6 +503,11 @@ img {
 
 .favBox input::placeholder {
     padding-left: 30px;
+}
+
+
+#charityname {
+    color: black;
 }
 
 
