@@ -6,6 +6,7 @@ let map;
 let infowindow;
 let autocomplete;
 let marker= [];
+
 // try to make restrict the search to the USA
 const countryRestrict = { country: "us" };
 const countries = {
@@ -59,7 +60,7 @@ function userSelectCity() {
     const place = autocomplete.getPlace();
       
     if (place.geometry) {
-        
+        cityLatLng = place.geometry.location;
         map.panTo(place.geometry.location);
         map.setZoom(15);
         
