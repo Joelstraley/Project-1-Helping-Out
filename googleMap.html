@@ -1,72 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style4.css">
-    
-    <title> Google Map API and Google Places API: Blood Bank Results</title>
-    <!------Polyfill-->
+<html>
+  <head>
+    <title>Place Search Pagination</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <!-------->
-     <!------Google Maps Javascript API libraries URL-->
     <script defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDhdaVqsZrmCYF70GkdpO_GH4y0DGhYqE&callback=initMap&libraries=places&v=weekly"
     ></script>
     <script defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDhdaVqsZrmCYF70GkdpO_GH4y0DGhYqE&libraries=places&callback=initMap">
     </script>
-    <link rel="stylesheet" type="text/css" href="./p1_Practice3_Pagination.css" />
-    
-</head>
-<body>
-    <div id= "map"></div>
-    <body>
-        <!--- Create the search box for user to type in their city name and get the bllodbanks near them-->
-        <div class="hospital-search">
-            <div id="findHospitals">Find Bloodbanks in:</div>
-            <!--- for the auto complete in the search box: neat thing to help user-->
-            <div id="locationField">
-              <input id="autocomplete" placeholder="Enter a city" type="text" />
-            </div>
-            <!---- trying to restrict the search area to the USA-->
-            <div id="controls">
-              <select id="country">
-                <option value="us" selected>U.S.A.</option>
-               
-              </select>
-            </div>
+    <link rel="stylesheet" type="text/css" href="./style4.css" />
+    <script src="./map.js"></script>
+  </head>
+  <body>
+    <div id="map"></div>
+    <div id="right-panel">
+      <h2>Results</h2>
+      <ul id="places"></ul>
+      <button id="more">More results</button>
+    </div>
+    <div class="hospital-search">
+        <div id="findHospitals">Find Bloodbanks in:</div>
+  
+        <div id="locationField">
+          <input id="autocomplete" placeholder="Enter a city" type="text" />
         </div>
-        
-        <div style="display: none">
-          <div id="info-content">
-            <table>
-              <tr id="iw-url-row" class="iw_table_row">
-                <td id="iw-icon" class="iw_table_icon"></td>
-                <td id="iw-url"></td>
-              </tr>
-              <tr id="iw-address-row" class="iw_table_row">
-                <td class="iw_attribute_name">Address:</td>
-                <td id="iw-address"></td>
-              </tr>
-              <tr id="iw-phone-row" class="iw_table_row">
-                <td class="iw_attribute_name">Telephone:</td>
-                <td id="iw-phone"></td>
-              </tr>
-              <tr id="iw-rating-row" class="iw_table_row">
-                <td class="iw_attribute_name">Rating:</td>
-                <td id="iw-rating"></td>
-              </tr>
-              <tr id="iw-website-row" class="iw_table_row">
-                <td class="iw_attribute_name">Website:</td>
-                <td id="iw-website"></td>
-              </tr>
-            </table>
-          </div>
+  
+        <div id="controls">
+          <select id="country">
+            <option value="us" selected>U.S.A.</option>
+           
+          </select>
         </div>
+      </div>
+  
+      <div id="map"></div>
+  
+      <div id="listing">
+        <table id="resultsTable">
+          <tbody id="results"></tbody>
+        </table>
+      </div>
+  
+      <div style="display: none">
+        <div id="info-content">
+          <table>
+            <tr id="iw-url-row" class="iw_table_row">
+              <td id="iw-icon" class="iw_table_icon"></td>
+              <td id="iw-url"></td>
+            </tr>
+            <tr id="iw-address-row" class="iw_table_row">
+              <td class="iw_attribute_name">Address:</td>
+              <td id="iw-address"></td>
+            </tr>
+            <tr id="iw-phone-row" class="iw_table_row">
+              <td class="iw_attribute_name">Telephone:</td>
+              <td id="iw-phone"></td>
+            </tr>
+            <tr id="iw-rating-row" class="iw_table_row">
+              <td class="iw_attribute_name">Rating:</td>
+              <td id="iw-rating"></td>
+            </tr>
+            <tr id="iw-website-row" class="iw_table_row">
+              <td class="iw_attribute_name">Website:</td>
+              <td id="iw-website"></td>
+            </tr>
+          </table>
+        </div>
+      </div>
 
-    <script src= "map.js"></script>
-
-</body>
+  </body>
 </html>
+

@@ -1,10 +1,8 @@
 // Need to make the map dynamic and hardcode a nearby search with google Places to find blood banks
-
 let map;
 let places;
 let autocomplete;
 let cityLatLng;
-// try to make restrict the search to the USA
 const countryRestrict = { country: "us" };
 const countries = {
     us: {
@@ -12,7 +10,9 @@ const countries = {
         zoom: 3,
     },
 }
-//try to make it dynamic and restricted to the US. Kept the zoom and center; added more controls
+    
+
+// Create the map that allows the user to pick a city (or potentially a zipcode).
 function initMap() {
     map = new google.maps.Map(document.getElementById("map"), {
         zoom: countries["us"].zoom,
@@ -22,28 +22,31 @@ function initMap() {
         zoomControl: false,
         streetViewControl: false,
     })
-    // Info windows will shows the list of results from the search
-    infoWindow = new google.maps.InfoWindow({
-        content: document.getElementById("info-content"),
-    });
-    // auto complete for the search box to help the user complete their cities search
+   
+    // Create the autocomplete for the user search box
+    // Restrict the search to the default country, and to place type "cities".
     autocomplete = new google.maps.places.Autocomplete(
-    document.getElementById("autocomplete"),
-        { 
-            //limit to cities, for now
-            types: ["(cities)"],
-            
+        document.getElementById("autocomplete"),{
+          types: ["(cities)"],
+          componentRestrictions: countryRestrict,
         }
     );
-
+    places = new google.maps.places.PlacesService(map);
+    autocomplete.addListener("place_changed", userSelectCity);
+    // Add a DOM event listener to react when the user selects a country.
+    document
+    .getElementById("country");
+        
     
 
+    
 }
-// more controls maybe more dynamic
-// enter a city name and it will zoom in on the inputted city
+
+// When the user selects a city, get the place details for the city and
+// zoom the map in on the city.
 function userSelectCity() {
     const place = autocomplete.getPlace();
-      
+  
     if (place.geometry) {
         cityLatLng = place.geometry.location;
         map.panTo(place.geometry.location);
@@ -56,16 +59,21 @@ function userSelectCity() {
             console.log(results)
             if (status !== "OK") return;
             createMarkers(results, map);
+            
+
+            
+            
+        
         }
     );
     } 
-        else {
-            document.getElementById("autocomplete").placeholder = "Enter a city";
-        }
+    else {
+    document.getElementById("autocomplete").placeholder = "Enter a city";
+    }
+    
 }
-// Markers on the Map: click responsive
+
 function createMarkers(results, map) {
-   
     for(let i = 0; i < results.length; i++){
         let infoWindowContent = `<div>
         ${results[i].name} ${results[i].vicinity} ${results[i].opening_hours}</div>`
@@ -83,8 +91,16 @@ function createMarkers(results, map) {
     
             marker.addListener("click", () => {
             infoWindow.open(map, marker);
-        });  
+            });  
     }
        
-}  
-            
+}
+
+ 
+
+
+
+                
+                    
+
+                  
