@@ -13,7 +13,7 @@ $(document).ready(function(){
     var cnAPIKEY = "04b276e51b8c538e2a38bb533518a83d";
     var navigatorURL = "https://api.data.charitynavigator.org/v2/Organizations?app_id=" + cnAPIID + "&app_key=" + cnAPIKEY; 
    
-  function runQuery(cnURL){
+/*   function runQuery(cnURL){
         $.ajax({url: cnURL,
         method: "GET"})
         .then(function(cnData){
@@ -90,24 +90,27 @@ $(document).ready(function(){
     } 
     
 
-
+ */
 
 
 
 
     function getZipBlood() {
+        $(".asidestyle").css("display","none")
         $("#bloodButton").css("display","none")
         $("#foodButton").css("display","none")
         $("#timeButton").css("display","none")
-        $(".footer").text(" ")
-        $(".footer").css("padding","100px 1000px")
         $("#modalBox").css("display", "grid")
-        $("#modalBox").html(`<div class="ui action input">
+        $("#modalBox").html(`<div class="ui three column grid container">
+        <div class="column"></div>
+        <div class="column">
+        <div class="ui action input">
         <input type="text" placeholder="Enter Zip code..." id="bloodZipInput">
         <button class="ui icon button" id="bloodSearchBtn">
           <i class="search icon"></i>
         </button>
-            </div>`)
+      </div>
+      </div>`)
             //change to "Enter City" above if we go with City search for Blood banks
          $("#bloodSearchBtn").on('click', function(event){
                 searchInput = $("#bloodZipInput").val();
@@ -119,17 +122,20 @@ $(document).ready(function(){
 
 
     function getZipFood() {
+        $(".asidestyle").css("display","none")
         $("#bloodButton").css("display","none")
         $("#foodButton").css("display","none")
         $("#timeButton").css("display","none")
-        $(".footer").text(" ")
-        $(".footer").css("padding","100px 1000px")
         $("#modalBox").css("display", "grid")
-        $("#modalBox").html(`<div class="ui action input">
+        $("#modalBox").html(`<div class="ui three column grid container">
+        <div class="column"></div>
+        <div class="column">
+        <div class="ui action input">
         <input type="text" placeholder="Enter Zip code..." id="foodZipInput">
         <button class="ui icon button" id="foodSearchBtn">
           <i class="search icon"></i>
         </button>
+      </div>
       </div>`)
         $("#modalBox").css("justify", "center")
         $("#foodSearchBtn").on('click', function(event){
@@ -141,29 +147,36 @@ $(document).ready(function(){
     
 
     function getZipTime() {
+        $(".asidestyle").css("display","none")
         $("#bloodButton").css("display","none")
         $("#foodButton").css("display","none")
         $("#timeButton").css("display","none")
-        $(".footer").text(" ")
-        $(".footer").css("padding","100px 1000px")
         $("#modalBox").css("display", "grid")
-        $("#modalBox").html(`<div class="ui action input">
+        $("#modalBox").html(`
+        <div class="ui three column grid container">
+        <div class="column"></div>
+        <div class="column">
+        <div class="ui action input">
         <input type="text" placeholder="Enter Zip code..." id="timeZipInput">
         <button class="ui icon button" id="timeSearchBtn">
           <i class="search icon"></i>
         </button>
+      </div>
       </div>`)
         $("#modalBox").css("justify", "center")
         $("#timeSearchBtn").on('click', function(event){
             searchInput = $("#timeZipInput").val();
+            console.log(searchInput)
             var cnTimeURL = navigatorURL + "&search=social" + "&zip=" + searchInput;
                     runQueryTime(cnTimeURL);
-                });
-        
-    }
+        });
+                };
+
+
+
     
 
-
+  
 
 
     function runQueryBlood(cnBloodURL){
@@ -173,23 +186,49 @@ $(document).ready(function(){
              // Comment to keep Zip Code box 
              //document.querySelector('#modalBox').innerHTML = "";
             for (let i= 0; i < 5; i++) {
-                if(!cnBloodData[i].mailingAddress.streetAddress1.includes('PO')){
+                if(!cnBloodData[i].mailingAddress.streetAddress1.includes('PO')){    
                     charitiesApi.push(cnBloodData[i])
-                    bloodResultsModal(cnBloodData[i]); 
+                    bloodResultsModal(cnBloodData[i]);
                 } 
             } 
         });
-    }            
+    }                    
     
-    function bloodResultsModal(cnBloodData){
+    var map;
+    function initMap(){
+        map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 15,
+            center: center,
+            })
+      }
+                   
+
+
+
+function bloodResultsModal(cnBloodData){
         document.querySelector('#modalBox').innerHTML += `
+        <div class="scrolling content">
         <div class="box like">
         <button><i class="fas fa-heart"></i></button>
-    </div><div>${cnBloodData.charityName}</div>
-        <div class="scrolling content">
+   <div><h2 id="charityname">${cnBloodData.charityName}</h2></div> </div>
           <p>${cnBloodData.irsClassification.nteeClassification}</p>
           <p>Street Address: ${cnBloodData.mailingAddress.streetAddress1}</p>
-        </div>`
+          </div>`;
+          $('#modalBox').css("text-align","center");
+
+
+       /*  var geoCodeURL = 'https://maps.google.com/maps/api/geocode/json?key=&address='
+        var address= cnBloodData[i].mailingAddress.streetAddress1 + "," + cnBloodData[i].mailingAddress.city + "," + cnBloodData[i].mailingAddress.stateOrProvince + "," + cnBloodData[i].mailingAddress.postalCode;
+        console.log(address);
+        var charitiesGeoCode=  geoCodeURL + address;
+        $.ajax({url: charitiesGeoCode,
+        method: "GET"})
+        .then(function(geoLocation) {
+            new google.maps.Marker({
+                map,
+                position: geoLocation.results[0].geometry.location,
+            }) 
+        }); */
     }
 
 
@@ -203,21 +242,23 @@ $(document).ready(function(){
                 if(!cnFoodData[i].mailingAddress.streetAddress1.includes('PO')){
                     charitiesApi.push(cnFoodData[i])
                     foodResultsModal(cnFoodData[i]); 
-                } console.log(cnFoodData)
+                } 
             } 
         });
-    }            
+    }
 
 function foodResultsModal(cnFoodData){
     document.querySelector('#modalBox').innerHTML += `
+    <div class="scrolling content">
     <div class="box like">
     <button><i class="fas fa-heart"></i></button>
-</div><div>${cnFoodData.charityName}</div>
-    <div class="scrolling content">
+</div><h2 id="charityname">${cnFoodData.charityName}</h2></div></div>
       <p>${cnFoodData.irsClassification.nteeClassification}</p>
       <p>Street Address: ${cnFoodData.mailingAddress.streetAddress1}</p>
     </div>`
+    $('#modalBox').css("text-align","center")
 }
+
     
 
 function runQueryTime(cnTimeURL){
@@ -237,13 +278,16 @@ function runQueryTime(cnTimeURL){
 
 function timeResultsModal(cnTimeData){
     document.querySelector('#modalBox').innerHTML += `
+    <div class="scrolling content">
     <div class="box like">
     <button><i class="fas fa-heart"></i></button>
-</div><div>${cnTimeData.charityName}</div>
-    <div class="scrolling content">
+</div><h2 id="charityname">${cnTimeData.charityName}</h2>
+</div>
+</div>
       <p>${cnTimeData.irsClassification.nteeClassification}</p>
       <p>Street Address: ${cnTimeData.mailingAddress.streetAddress1}</p>
     </div>`
+    $('#modalBox').css("text-align","center")
 }
 
 
@@ -290,5 +334,5 @@ function timeResultsModal(cnTimeData){
     $("#foodButton").on("click", getZipFood);
     $("#timeButton").on("click", getZipTime);
     
-
-})
+                
+});
