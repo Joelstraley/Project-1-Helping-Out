@@ -1,4 +1,3 @@
-*,
 *::before,
 *::after {
     margin: 0;
@@ -208,18 +207,6 @@ nav {
     position: relative;
 }
 
-.main-btn {
-    font-size: 1.5rem;
-    border: 2px solid #788a93;
-    background-color: #469dc2;
-    color: #eee;
-    padding: 1rem 2rem;
-    letter-spacing: 3px;
-    margin-right: -3px;
-    position: relative;
-    margin-top: 2.5rem;
-}
-
 .media {
     position: absolute;
     right: -10px;
@@ -253,7 +240,7 @@ nav {
 
 /* style for main buttons */
 
-.main-button{
+.main-button {
     border-radius: 12px;
     width: 90%;
     background-color: #469dc2;
@@ -294,20 +281,23 @@ button:hover {
 }
 
 /* Meet the Team */
-.footer {
-    display: inline;
+footer {
+    display: inline-flex;
     background-color: #212121;
     position: inherit;
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 15px 0;
+    height: auto;
+    margin: 44px;
+    /* padding: 15px 0; */
     align-self: center;
     align-content: center;
     text-align: center;
     align-items: center;
     justify-content: center;
   }
+
 /* 
   .horizontal {
       margin-top: 100vh;
@@ -432,23 +422,47 @@ img {
 }
 
 
-#modalBox{
+#modalBox {
     /* position:fixed; */
+    /* display: inline-flex; */
+    width: 800px;
+    height: auto;
+    padding: 3%;
     z-index:1;
-   display: none;
-    }
-    
+    display: none;
+    box-shadow: none;
+    background-color: #f1f4f5;
+}
+
+#modalBox input {
+    font-size: 18px;
+    /* height: auto; */
+}
+
+#modalBox input::placeholder {
+    font-size: 15px;
+    text-align: center;
+    color: #4d4d4d;    
+}
+
+
+.mainSearchBtns {
+    display: inline-flex;
+    align-items: center;
+    font-size: 15px !important;
+    width: auto;
+}
 
 /* Favorites Page */
 
 #myFavorites {
+    display: none;
     width: 100%;
     height: 80%;
     display: none;
     justify-content: center;
-    background-color: #61bbe1;
+    background-color: #f1f4f5;
     margin-bottom: 3%;
-
 }
 
 .favContainer {
@@ -492,14 +506,11 @@ img {
 .favBox input {
     display: flex;
     width: 100%;
-    height: 100px;
+    height: 80px;
     justify-content: flex-start;
     align-self: flex-start;
     border: 3px solid #555;
 }
-
-/* input[type=text]:focus {
-  } */
 
 .favBox input::placeholder {
     padding-left: 30px;

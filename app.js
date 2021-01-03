@@ -106,7 +106,7 @@ $(document).ready(function(){
         <div class="column">
         <div class="ui action input">
         <input type="text" placeholder="Enter Zip code..." id="bloodZipInput">
-        <button class="ui icon button" id="bloodSearchBtn">
+        <button class="ui icon button mainSearchBtns" id="bloodSearchBtn">
           <i class="search icon"></i>
         </button>
       </div>
@@ -119,7 +119,6 @@ $(document).ready(function(){
                 });           
     }
 
-
     function getZipFood() {
         $(".asidestyle").css("display","none")
         $("#bloodButton").css("display","none")
@@ -131,7 +130,7 @@ $(document).ready(function(){
         <div class="column">
         <div class="ui action input">
         <input type="text" placeholder="Enter Zip code..." id="foodZipInput">
-        <button class="ui icon button" id="foodSearchBtn">
+        <button class="ui icon button mainSearchBtns" id="foodSearchBtn">
           <i class="search icon"></i>
         </button>
       </div>
@@ -156,7 +155,7 @@ $(document).ready(function(){
         <div class="column">
         <div class="ui action input">
         <input type="text" placeholder="Enter Zip code..." id="timeZipInput">
-        <button class="ui icon button" id="timeSearchBtn">
+        <button class="ui icon button mainSearchBtns" id="timeSearchBtn">
           <i class="search icon"></i>
         </button>
       </div>
@@ -249,8 +248,7 @@ function foodResultsModal(cnFoodData){
       <p>Street Address: ${cnFoodData.mailingAddress.streetAddress1}</p>
     </div>`
     $('#modalBox').css("text-align","center")
-    localStorage.setItem("Name",cnFoodData.charityName)
-    myFavorites(cnFoodData);
+
 }
 
 
@@ -323,7 +321,7 @@ function timeResultsModal(cnTimeData){
     
     $('nav a').on('click', function() {
         $('.burger').removeClass('active');
-        $('overlay').removeClass('burger-open');
+        $('.overlay').removeClass('burger-open');
     });
     
     $("#bloodButton").on("click",getZipBlood);
