@@ -99,8 +99,8 @@ $(document).ready(function(){
         $("#bloodButton").css("display","none")
         $("#foodButton").css("display","none")
         $("#timeButton").css("display","none")
-        $(".footer").text(" ")
-        $(".footer").css("padding","100px 1000px")
+        // $(".footer").text(" ")
+        // $(".footer").css("padding","100px 1000px")
         $("#modalBox").css("display", "grid")
         $("#modalBox").html(`<div class="ui action input">
         <input type="text" placeholder="Enter Zip code..." id="bloodZipInput">
@@ -217,6 +217,7 @@ function foodResultsModal(cnFoodData){
       <p>${cnFoodData.irsClassification.nteeClassification}</p>
       <p>Street Address: ${cnFoodData.mailingAddress.streetAddress1}</p>
     </div>`
+
 }
     
 
