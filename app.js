@@ -121,8 +121,8 @@ $(document).ready(function(){
         $("#bloodButton").css("display","none")
         $("#foodButton").css("display","none")
         $("#timeButton").css("display","none")
-        $(".footer").text(" ")
-        $(".footer").css("padding","100px 1000px")
+        // $(".footer").text(" ")
+        // $(".footer").css("padding","100px 1000px")
         $("#modalBox").css("display", "grid")
         $("#modalBox").html(`<div class="ui action input">
         <input type="text" placeholder="Enter Zip code..." id="foodZipInput">
@@ -143,9 +143,9 @@ $(document).ready(function(){
         $("#bloodButton").css("display","none")
         $("#foodButton").css("display","none")
         $("#timeButton").css("display","none")
-        $(".footer").text(" ")
-        // FRONT END - Adjust padding
-        $(".footer").css("padding","100px 1000px")
+        // FRONT END - Remove footer in js in order for footer not to dissapear when clicked 
+        // $(".footer").text(" ")
+        // $(".footer").css("padding","100px 1000px")
         $("#modalBox").css("display", "grid")
         $("#modalBox").html(`<div class="ui action input">
         <input type="text" placeholder="Enter Zip code..." id="timeZipInput">

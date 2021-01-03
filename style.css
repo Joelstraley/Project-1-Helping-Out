@@ -294,20 +294,23 @@ button:hover {
 }
 
 /* Meet the Team */
-.footer {
-    display: inline;
+footer {
+    display: inline-flex;
     background-color: #212121;
     position: inherit;
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 15px 0;
+    height: auto;
+    margin: 44px;
+    /* padding: 15px 0; */
     align-self: center;
     align-content: center;
     text-align: center;
     align-items: center;
     justify-content: center;
   }
+
 /* 
   .horizontal {
       margin-top: 100vh;
