@@ -12,7 +12,24 @@
 </head>
 <body>
     <div id= "map"></div>
+    <body>
+        <!--- Create the search box for user to type in their city name and get the bllodbanks near them-->
+        <div class="hospital-search">
+            <div id="findHospitals">Find Bloodbanks in:</div>
+            <!--- for the auto complete in the search box: neat thing to help user-->
+            <div id="locationField">
+              <input id="autocomplete" placeholder="Enter a city" type="text" />
+            </div>
+            <!---- trying to restrict the search area to the USA-->
+            <div id="controls">
+              <select id="country">
+                <option value="us" selected>U.S.A.</option>
+               
+              </select>
+            </div>
+        </div>
 
     <script src= "map.js"></script>
+
 </body>
 </html>

@@ -1,7 +1,11 @@
-//Start with a Static Search: trying to get the map the appear in one location: 
+// Need to make the map dynamic 
 
 
 let map;
+//try to put result makers on
+let infowindow;
+let autocomplete;
+let marker= [];
 // start with hard coded latLng to sanfrancisco
 const sanFran= { lat: 37.7576171, lng: -122.5776844 }
 function initMap() {
@@ -10,18 +14,19 @@ function initMap() {
         zoom: 10,
         
     });
-    // // Info windows will shows the list of results from the search
-    // infoWindow = new google.maps.InfoWindow({
-    //     content: document.getElementById("info-content"),
-    // });
-    // // for the search box to help the user complete their cities search
-    // autocomplete = new google.maps.places.Autocomplete(
-    // document.getElementById("autocomplete"),
-    //     {
-    //         types: ["(cities)"],
+    // Info windows will shows the list of results from the search
+    infoWindow = new google.maps.InfoWindow({
+        content: document.getElementById("info-content"),
+    });
+    // auto complete for the search box to help the user complete their cities search
+    autocomplete = new google.maps.places.Autocomplete(
+    document.getElementById("autocomplete"),
+        { 
+            //limit to cities, for now
+            types: ["(cities)"],
             
-    //     }
-    // );
+        }
+    );
 
                 
     //google places API trying to do nearby search hardcode attempt at type:hospitals and keyword:Bloodbanks : no search bar yet or results for blood bank yet
@@ -31,6 +36,7 @@ function initMap() {
         console.log(results)
         for(let i = 0; i < results.length; i++){
             let place = results[i]
+            // result markers
             new google.maps.Marker({
                 map,
                     title: place.name,
