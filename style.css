@@ -432,12 +432,51 @@ img {
 }
 
 
-#modalBox{
+#modalBox {
     /* position:fixed; */
+    /* display: inline-flex; */
+    width: 800;
+    height: auto;
+    padding: 3%;
     z-index:1;
-   display: none;
-    }
-    
+    display: none;
+    box-shadow: none;
+    background-color: #f1f4f5;
+}
+
+#modalBox input {
+    font-size: 18px;
+    /* height: auto; */
+}
+
+#modalBox input::placeholder {
+    font-size: 15px;
+    text-align: center;
+    color: #4d4d4d;    
+}
+
+
+.mainSearchBtns {
+    display: inline-flex;
+    align-items: center;
+    font-size: 20px;
+    width: auto;
+}
+
+/* #foodSearchBtn {
+    display: inline-flex;
+    align-items: center;
+    font-size: 20px;
+    width: auto;
+}
+
+#bloodSearchBtn {
+    display: inline-flex;
+    align-items: center;
+    font-size: 20px;
+    width: auto;
+} */
+
 
 /* Favorites Page */
 
@@ -446,9 +485,8 @@ img {
     height: 80%;
     display: flex;
     justify-content: center;
-    background-color: #61bbe1;
+    background-color: #f1f4f5;
     margin-bottom: 3%;
-
 }
 
 .favContainer {

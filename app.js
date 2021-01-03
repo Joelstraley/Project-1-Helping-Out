@@ -104,7 +104,7 @@ $(document).ready(function(){
         $("#modalBox").css("display", "grid")
         $("#modalBox").html(`<div class="ui action input">
         <input type="text" placeholder="Enter Zip code..." id="bloodZipInput">
-        <button class="ui icon button" id="bloodSearchBtn">
+        <button class="ui icon button mainSearchBtns" id="bloodSearchBtn">
           <i class="search icon"></i>
         </button>
             </div>`)
@@ -117,7 +117,6 @@ $(document).ready(function(){
                 });           
     }
 
-
     function getZipFood() {
         $("#bloodButton").css("display","none")
         $("#foodButton").css("display","none")
@@ -127,7 +126,7 @@ $(document).ready(function(){
         $("#modalBox").css("display", "grid")
         $("#modalBox").html(`<div class="ui action input">
         <input type="text" placeholder="Enter Zip code..." id="foodZipInput">
-        <button class="ui icon button" id="foodSearchBtn">
+        <button class="ui icon button mainSearchBtns" id="foodSearchBtn">
           <i class="search icon"></i>
         </button>
       </div>`)
@@ -145,11 +144,12 @@ $(document).ready(function(){
         $("#foodButton").css("display","none")
         $("#timeButton").css("display","none")
         $(".footer").text(" ")
+        // FRONT END - Adjust padding
         $(".footer").css("padding","100px 1000px")
         $("#modalBox").css("display", "grid")
         $("#modalBox").html(`<div class="ui action input">
         <input type="text" placeholder="Enter Zip code..." id="timeZipInput">
-        <button class="ui icon button" id="timeSearchBtn">
+        <button class="ui icon button mainSearchBtns" id="timeSearchBtn">
           <i class="search icon"></i>
         </button>
       </div>`)
@@ -283,7 +283,7 @@ function timeResultsModal(cnTimeData){
     
     $('nav a').on('click', function() {
         $('.burger').removeClass('active');
-        $('overlay').removeClass('burger-open');
+        $('.overlay').removeClass('burger-open');
     });
     
     $("#bloodButton").on("click",getZipBlood);
