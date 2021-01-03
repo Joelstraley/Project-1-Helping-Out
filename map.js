@@ -38,20 +38,32 @@ function initMap() {
         }
     );
 
-                
     //google places API trying to do nearby search hardcode attempt at type:hospitals and keyword:Bloodbanks : no search bar yet or results for blood bank yet
 
-    const service = new google.maps.places.PlacesService(map);
-    service.nearbySearch({location: sanFran, radius: 16093.4, type: "hospital", keyword: "bloodbank", setting: "open now"},function (results, status, pagination){
-        console.log(results)
-        for(let i = 0; i < results.length; i++){
-            let place = results[i]
-            // result markers
-            new google.maps.Marker({
-                map,
-                    title: place.name,
-                    position: place.geometry.location,
-                });
-        }
-    })
-} 
+//     const service = new google.maps.places.PlacesService(map);
+//     service.nearbySearch({location: sanFran, radius: 16093.4, type: "hospital", keyword: "bloodbank", setting: "open now"},function (results, status, pagination){
+//         console.log(results)
+//         for(let i = 0; i < results.length; i++){
+//             let place = results[i]
+//             // result markers
+//             new google.maps.Marker({
+//                 map,
+//                     title: place.name,
+//                     position: place.geometry.location,
+//                 });
+//         }
+//     })
+// } 
+// more controls maybe more dynamic?
+function userSelectCity() {
+    const place = autocomplete.getPlace();
+      
+    if (place.geometry) {
+        
+        map.panTo(place.geometry.location);
+        map.setZoom(15);
+        
+    
+    }
+}
+            
