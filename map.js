@@ -1,12 +1,9 @@
-// Need to make the map dynamic 
-
+// Need to make the map dynamic and hardcode a nearby search with google Places to find blood banks
 
 let map;
-//try to put result makers on
-let infowindow;
+let places;
 let autocomplete;
-let marker= [];
-
+let cityLatLng;
 // try to make restrict the search to the USA
 const countryRestrict = { country: "us" };
 const countries = {
@@ -39,23 +36,11 @@ function initMap() {
         }
     );
 
-    //google places API trying to do nearby search hardcode attempt at type:hospitals and keyword:Bloodbanks : no search bar yet or results for blood bank yet
+    
 
-//     const service = new google.maps.places.PlacesService(map);
-//     service.nearbySearch({location: sanFran, radius: 16093.4, type: "hospital", keyword: "bloodbank", setting: "open now"},function (results, status, pagination){
-//         console.log(results)
-//         for(let i = 0; i < results.length; i++){
-//             let place = results[i]
-//             // result markers
-//             new google.maps.Marker({
-//                 map,
-//                     title: place.name,
-//                     position: place.geometry.location,
-//                 });
-//         }
-//     })
-// } 
-// more controls maybe more dynamic?
+}
+// more controls maybe more dynamic
+// enter a city name and it will zoom in on the inputted city
 function userSelectCity() {
     const place = autocomplete.getPlace();
       
@@ -63,8 +48,43 @@ function userSelectCity() {
         cityLatLng = place.geometry.location;
         map.panTo(place.geometry.location);
         map.setZoom(15);
-        
-    
-    }
+        const service = new google.maps.places.PlacesService(map);
+        // Perform a nearby search with search parameters; user location and bloodbanks
+        service.nearbySearch(
+        {location: cityLatLng, radius: 80467.2, type: "hospital", keyword: "blood_donation", setting: "open now"},
+        (results, status, pagination) => {
+            console.log(results)
+            if (status !== "OK") return;
+            createMarkers(results, map);
+        }
+    );
+    } 
+        else {
+            document.getElementById("autocomplete").placeholder = "Enter a city";
+        }
 }
+// Markers on the Map: click responsive
+function createMarkers(results, map) {
+   
+    for(let i = 0; i < results.length; i++){
+        let infoWindowContent = `<div>
+        ${results[i].name} ${results[i].vicinity} ${results[i].opening_hours}</div>`
+        let infoWindow = new google.maps.InfoWindow({
+            content:infoWindowContent
+        });
+        
+        let place = results[i]
+            let marker = new google.maps.Marker({
+                map,
+                title: place.name,
+                position: place.geometry.location,
+            });
+          
+    
+            marker.addListener("click", () => {
+            infoWindow.open(map, marker);
+        });  
+    }
+       
+}  
             
