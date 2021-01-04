@@ -579,10 +579,14 @@ img {
     align-items: center;
     align-self: center;
     width: 80%;
-    height: 70%;
+    height: 55%;
     margin-top: 5%;
     cursor: pointer;
 }
+
+/* #contactForm {
+    width: 100%;
+} */
 
 form h1 {
     /* width: 100%; */
@@ -590,8 +594,13 @@ form h1 {
     margin-bottom: 5%;
 }
 
-#contactForm input {
+/* #contactForm input {
+    width: 50%;
     
+} */
+
+#contactSubmitBtn {
+
 }
 
 .field input::placeholder {
@@ -640,16 +649,4 @@ form h1 {
     }
 }
 
-/* 
-
-.content {
-    display: inline-block;
-    width: auto;
-    height: auto;
-    margin-bottom: 3%;
-    justify-content: center;
-    text-align: center;
-    margin: auto;
-}
- */
 
