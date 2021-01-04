@@ -449,7 +449,7 @@ img {
 #modalBox {
     /* position:fixed; */
     /* display: inline-flex; */
-    width: 100%;
+    width: auto !important;
     height: 90%;
     padding: 3%;
     z-index:1;
@@ -457,6 +457,7 @@ img {
     box-shadow: none;
     background-color: #f1f4f5;
 }
+
 
 #modalBox input {
     font-size: 18px;
