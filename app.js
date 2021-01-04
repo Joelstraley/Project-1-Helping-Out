@@ -97,6 +97,7 @@ $(document).ready(function(){
 
     function getZipBlood() {
         $(".asidestyle").css("display","none")
+        $("#footer").css("display","none")
         $("#bloodButton").css("display","none")
         $("#foodButton").css("display","none")
         $("#timeButton").css("display","none")
@@ -112,6 +113,7 @@ $(document).ready(function(){
       </div>
       </div>`)
             //change to "Enter City" above if we go with City search for Blood banks
+        //  $("#footer").css("display","none")
          $("#bloodSearchBtn").on('click', function(event){
                 searchInput = $("#bloodZipInput").val();
                     var cnBloodURL = navigatorURL + "&zip=" + searchInput;
@@ -121,6 +123,7 @@ $(document).ready(function(){
 
     function getZipFood() {
         $(".asidestyle").css("display","none")
+        $("#footer").css("display","none")
         $("#bloodButton").css("display","none")
         $("#foodButton").css("display","none")
         $("#timeButton").css("display","none")
@@ -145,6 +148,7 @@ $(document).ready(function(){
 
     function getZipTime() {
         $(".asidestyle").css("display","none")
+        $("#footer").css("display","none")
         $("#bloodButton").css("display","none")
         $("#foodButton").css("display","none")
         $("#timeButton").css("display","none")
@@ -165,7 +169,7 @@ $(document).ready(function(){
             var cnTimeURL = navigatorURL + "&search=social" + "&zip=" + searchInput;
                     runQueryTime(cnTimeURL);
         });
-                };
+    };
 
 
 
