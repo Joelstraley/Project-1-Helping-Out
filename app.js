@@ -166,31 +166,31 @@ $(document).ready(function(){
 
 
 
-    function runQueryBlood(cnBloodURL){
-        $.ajax({url: cnBloodURL,
-        method: "GET"})
-        .then(function(cnBloodData){
-             // Comment to keep Zip Code box 
-             //document.querySelector('#modalBox').innerHTML = "";
-            for (let i= 0; i < 5; i++) {
-                if(!cnBloodData[i].mailingAddress.streetAddress1.includes('PO')){
-                    charitiesApi.push(cnBloodData[i])
-                    bloodResultsModal(cnBloodData[i]); 
-                } 
-            } 
-        });
-    }            
+    // function runQueryBlood(cnBloodURL){
+    //     $.ajax({url: cnBloodURL,
+    //     method: "GET"})
+    //     .then(function(cnBloodData){
+    //          // Comment to keep Zip Code box 
+    //          //document.querySelector('#modalBox').innerHTML = "";
+    //         for (let i= 0; i < 5; i++) {
+    //             if(!cnBloodData[i].mailingAddress.streetAddress1.includes('PO')){
+    //                 charitiesApi.push(cnBloodData[i])
+    //                 bloodResultsModal(cnBloodData[i]); 
+    //             } 
+    //         } 
+    //     });
+    // }            
     
-    function bloodResultsModal(cnBloodData){
-        document.querySelector('#modalBox').innerHTML += `
-        <div class="box like">
-        <button><i class="fas fa-heart"></i></button>
-    </div><div>${cnBloodData.charityName}</div>
-        <div class="scrolling content">
-          <p>${cnBloodData.irsClassification.nteeClassification}</p>
-          <p>Street Address: ${cnBloodData.mailingAddress.streetAddress1}</p>
-        </div>`
-    }
+    // function bloodResultsModal(cnBloodData){
+    //     document.querySelector('#modalBox').innerHTML += `
+    //     <div class="box like">
+    //     <button><i class="fas fa-heart"></i></button>
+    // </div><div>${cnBloodData.charityName}</div>
+    //     <div class="scrolling content">
+    //       <p>${cnBloodData.irsClassification.nteeClassification}</p>
+    //       <p>Street Address: ${cnBloodData.mailingAddress.streetAddress1}</p>
+    //     </div>`
+    // }
 
 
     function runQueryFood(cnFoodURL){
