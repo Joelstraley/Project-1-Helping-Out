@@ -255,6 +255,10 @@ button:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
   }
 
+.main-button p {
+    line-height: 25px;
+}
+
 /* Nav + Home End */
 
 /* Aside Page */
@@ -456,6 +460,7 @@ img {
 
 .mainSearchBtns {
     display: inline-flex;
+    text-align: center;
     align-items: center;
     font-size: 15px !important;
     width: auto;
