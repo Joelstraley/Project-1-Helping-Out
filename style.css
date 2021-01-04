@@ -247,7 +247,6 @@ nav {
     padding: 45px;
     text-align:center;
     margin: 16px;
-    margin-left: 70px;
     border: 1px;
     opacity: 80%;
 }
@@ -560,10 +559,6 @@ img {
 @media screen and (max-width: 1200px) {
     #logo {
         display: block;
-    }
-    .content {
-        width: auto;
-        margin-right: 10%;
     }
 }
 
