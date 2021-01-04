@@ -568,11 +568,12 @@ img {
     flex-direction: column;
     text-align: center;
     position: relative;
+    opacity: 0.9;
 }
 
 .contactContent {
     display: inline-flex;
-    background-color:#9fb8ce;
+    background-color: #9fb8ce;
     opacity: 0.9;
     justify-content: center;
     align-items: center;
@@ -583,33 +584,22 @@ img {
     cursor: pointer;
 }
 
+form h1 {
+    /* width: 100%; */
+    font-size: 30px;
+    margin-bottom: 5%;
+}
 
-/* 
-.overlay {
-    background-color: rgba(0, 0, 0, .95);
-    position: fixed;
-    right: 0;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    z-index: 1;
-    /* instead of all i can use opacity */
-    transition: all 650ms;
-    transform: scale(0);
-    opacity: 0;
-    z-index: 1000;
+#contactForm input {
+    
+}
 
-} */
-
-/* .contactContent:hover {
-    opacity: 0.9;
-} */
+.field input::placeholder {
+    font-size: 15px;
+    text-align: center;
+}
 
 /*END CONTACT*/
-
-
-
-
 
 
 /* RESPONSIVE */
