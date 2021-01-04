@@ -138,8 +138,10 @@
                             <input type="text" placeholder="result here">
                         </section>
                     </div>
-                  </div>
                 </div>
+                  <div id="map"></div>
+                </div>
+
     </main>
 
 
@@ -248,11 +250,35 @@
 >>>>>>> cc43e8d38bd51aab35521392e0d617d0440786ed -->
 
     <!------Google Maps Javascript API libraries URL-------->
-    <script defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDhdaVqsZrmCYF70GkdpO_GH4y0DGhYqE&libraries=places&callback=initMap">
-    </script> 
+    <script> 
+        const countryRestrict = { country: "us" };
+        const countries = {
+            us: {
+                center: { lat: 37.1, lng: -95.7 },
+                zoom: 3,
+            },
+        }      
+        const sanFran = { lat: 37.7576171, lng: -122.5776844 }
+        let map;
+        function initMap(){
+            map = new google.maps.Map(document.getElementById("map"), {
+                zoom: countries["us"].zoom,
+                center: countries["us"].center,
+                mapTypeControl: false,
+                panControl: false,
+                zoomControl: false,
+                streetViewControl: false,
 
-    <script src="app.js"></script>
+            })
+            
+        }
+    </script>
+    <script async="false"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDhdaVqsZrmCYF70GkdpO_GH4y0DGhYqE&callback=initMap&libraries=places&v=weekly"
+    ></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    
+    <script src="app2.js"></script>
 
 </body>
 </html>

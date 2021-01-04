@@ -6,7 +6,9 @@ body {
     display:none;
   }
 
-.wrapper {
+
+
+  .wrapper {
     grid-gap: 10px;
     grid-template-columns: [col] 100px [col] 100px [col] 100px [col] 100px  ;
     grid-template-rows: [row] auto [row] auto [row] ;
