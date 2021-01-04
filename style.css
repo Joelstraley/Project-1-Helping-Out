@@ -289,19 +289,20 @@ button:hover {
     width: auto;
 }
 
-.asidestyle {
+#asideStyle {
     margin-right: 20px;
     padding: 20px;
     clear: both;
     float: right;
     width: 20%;
-    height: auto;
+    height: 30%;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    /* background-color: ; */
+    background-color: red;
 }
 
+/* COMMENT BACK - TESTING */
 .content, 
-.asidestyle {
+.asideStyle {
     margin-bottom: 0%;
 }
 
