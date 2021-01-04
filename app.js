@@ -1,28 +1,26 @@
 $(document).ready(function(){
-
     // step 1: use maps javascript to create a basic map using the latitude and longitude coordinates for which ever location in order to test whether the map zeros into the location. the let variable MUST be changed depending on the location in oder to best track which static location we are performing the test on.  
-    
     let infoWindow;
     let autocomplete;
     let marker= [];
     let charitiesApi= [];
     let charityGeoCodeResults = []; 
+    let mapContainer = document.getElementById("map");
+
     
     //*  CHARITY NAVIGATOR 
     var cnAPIID = "29acb795";
     var cnAPIKEY = "04b276e51b8c538e2a38bb533518a83d";
     var navigatorURL = "https://api.data.charitynavigator.org/v2/Organizations?app_id=" + cnAPIID + "&app_key=" + cnAPIKEY; 
-   
+
 /*   function runQuery(cnURL){
         $.ajax({url: cnURL,
         method: "GET"})
         .then(function(cnData){
-            
             orgname.text(cnData[0].charityName);
             for (let i= 0; i < cnData.length; i++) {
                 if(!cnData[i].mailingAddress.streetAddress1.includes('PO')){
                     charitiesApi.push(cnData[i])
-                    
                 }
             } 
             var geoCodeURL = 'https://maps.google.com/maps/api/geocode/json?key=&address='
@@ -32,10 +30,8 @@ $(document).ready(function(){
                 $.ajax({url: charitiesGeoCode,
                 method: "GET"})
                 .then(function(geoLocation) {
-                    
                     charityGeoCodeResults.push(geoLocation)
                 });
-    
             }
             console.log("hi", charityGeoCodeResults)
             for(let k = 0; k < charityGeoCodeResults.length; k++){
@@ -44,14 +40,11 @@ $(document).ready(function(){
                 new google.maps.Marker({
                     map,
                     ///title// 
-                    position: place.geometry.location,
-    
+                    position: place.geometry.location,    
                 });
             }
         });
-    
 } 
-
 // Google map
    // let map;
     const sanFran= { lat: 37.7576171, lng: -122.5776844 }
@@ -59,7 +52,6 @@ $(document).ready(function(){
         map = new google.maps.Map($("#map"), {
             center: sanFran,
             zoom: 10,
-    
         });
         // Info windows will shows the list of results from the search
         infoWindow = new google.maps.InfoWindow({
@@ -73,7 +65,6 @@ $(document).ready(function(){
                 componentRestrictions: countryRestrict,
             }
         );
-      
        //static location search     
         const service = new google.maps.places.PlacesService(map);
         service.nearbySearch({location: sanFran, radius: 16093.4, type: "hospital", keyword: "bloodbank", setting: "open now"},function (results, status, pagination){
@@ -88,14 +79,9 @@ $(document).ready(function(){
             }
         })
     } 
-    
-
  */
-
-
-
-
     function getZipBlood() {
+        $("#footer").css("display","none")        
         $(".asidestyle").css("display","none")
         $("#bloodButton").css("display","none")
         $("#foodButton").css("display","none")
@@ -118,8 +104,8 @@ $(document).ready(function(){
                     runQueryBlood(cnBloodURL);
                 });           
     }
-
     function getZipFood() {
+        $("#footer").css("display","none")
         $(".asidestyle").css("display","none")
         $("#bloodButton").css("display","none")
         $("#foodButton").css("display","none")
@@ -141,9 +127,8 @@ $(document).ready(function(){
                     runQueryFood(cnFoodURL);
                 });
     } 
-    
-
     function getZipTime() {
+        $("#footer").css("display","none")
         $(".asidestyle").css("display","none")
         $("#bloodButton").css("display","none")
         $("#foodButton").css("display","none")
@@ -166,9 +151,6 @@ $(document).ready(function(){
                     runQueryTime(cnTimeURL);
         });
                 };
-
-
-
     function runQueryBlood(cnBloodURL){
         $.ajax({url: cnBloodURL,
         method: "GET"})
@@ -177,24 +159,24 @@ $(document).ready(function(){
              //document.querySelector('#modalBox').innerHTML = "";
             for (let i= 0; i < 5; i++) {
                 if(!cnBloodData[i].mailingAddress.streetAddress1.includes('PO')){    
-                    charitiesApi.push(cnBloodData[i])
                     bloodResultsModal(cnBloodData[i]);
+                    var geoCodeURL = 'https://maps.google.com/maps/api/geocode/json?key=AIzaSyCPVw500XpYjFEiaJfnmfxke54P6FM8EzI&address='
+                    var address= cnBloodData[i].mailingAddress.streetAddress1 + "," + cnBloodData[i].mailingAddress.city + "," + cnBloodData[i].mailingAddress.stateOrProvince + "," + cnBloodData[i].mailingAddress.postalCode;
+                    console.log(address);
+                    var charitiesGeoCode=  geoCodeURL + address;
+                    $.ajax({url: charitiesGeoCode,
+                    method: "GET"})
+                    .then(function(geoLocation) {
+                        console.log(geoLocation)
+                        new google.maps.Marker({
+                            map,
+                            position: geoLocation.results[0].geometry.location,
+                        })
+                    });
                 } 
-            } 
+            } document.querySelector('#modalBox').append(mapContainer)
         });
     }                    
-    
-    var map;
-    function initMap(){
-        map = new google.maps.Map(document.getElementById("map"), {
-            zoom: 15,
-            center: center,
-            })
-      }
-                   
-
-
-
 function bloodResultsModal(cnBloodData){
         document.querySelector('#modalBox').innerHTML += `
         <div class="scrolling content">
@@ -204,24 +186,8 @@ function bloodResultsModal(cnBloodData){
           <p>${cnBloodData.irsClassification.nteeClassification}</p>
           <p>Street Address: ${cnBloodData.mailingAddress.streetAddress1}</p>
           </div>`;
-          $('#modalBox').css("text-align","center");
-
-
-       /*  var geoCodeURL = 'https://maps.google.com/maps/api/geocode/json?key=&address='
-        var address= cnBloodData[i].mailingAddress.streetAddress1 + "," + cnBloodData[i].mailingAddress.city + "," + cnBloodData[i].mailingAddress.stateOrProvince + "," + cnBloodData[i].mailingAddress.postalCode;
-        console.log(address);
-        var charitiesGeoCode=  geoCodeURL + address;
-        $.ajax({url: charitiesGeoCode,
-        method: "GET"})
-        .then(function(geoLocation) {
-            new google.maps.Marker({
-                map,
-                position: geoLocation.results[0].geometry.location,
-            }) 
-        }); */
+          $('#modalBox').css("text-align","center")
     }
-
-
     function runQueryFood(cnFoodURL){
         $.ajax({url: cnFoodURL,
         method: "GET"})
@@ -230,14 +196,25 @@ function bloodResultsModal(cnBloodData){
              //document.querySelector('#modalBox').innerHTML = "";
             for (let i= 0; i < 5; i++) {
                 if(!cnFoodData[i].mailingAddress.streetAddress1.includes('PO')){
-                    charitiesApi.push(cnFoodData[i])
                     foodResultsModal(cnFoodData[i]); 
+                    var geoCodeURL = 'https://maps.google.com/maps/api/geocode/json?key=&address='
+                    var address= cnFoodData[i].mailingAddress.streetAddress1 + "," + cnFoodData[i].mailingAddress.city + "," + cnFoodData[i].mailingAddress.stateOrProvince + "," + cnFoodData[i].mailingAddress.postalCode;
+                    console.log(address);
+                    var charitiesGeoCode=  geoCodeURL + address;
+                    $.ajax({url: charitiesGeoCode,
+                    method: "GET"})
+                    .then(function(geoLocation) {
+                        console.log(geoLocation)
+                        new google.maps.Marker({
+                            map,
+                            position: geoLocation.results[0].geometry.location,
+                        })
+                    });
                 } 
-            } 
+            } document.querySelector('#modalBox').append(mapContainer);
         });
-    }
-
-
+    }      
+               
 function foodResultsModal(cnFoodData){
     document.querySelector('#modalBox').innerHTML += `
     <div class="scrolling content">
@@ -248,12 +225,8 @@ function foodResultsModal(cnFoodData){
       <p>Street Address: ${cnFoodData.mailingAddress.streetAddress1}</p>
     </div>`
     $('#modalBox').css("text-align","center")
-
 }
 
-
-
-    
 
 function runQueryTime(cnTimeURL){
     $.ajax({url: cnTimeURL,
@@ -263,12 +236,24 @@ function runQueryTime(cnTimeURL){
          //document.querySelector('#modalBox').innerHTML = "";
         for (let i= 0; i < 5; i++) {
             if(!cnTimeData[i].mailingAddress.streetAddress1.includes('PO')){
-                charitiesApi.push(cnTimeData[i])
                 timeResultsModal(cnTimeData[i]); 
+                var geoCodeURL = 'https://maps.google.com/maps/api/geocode/json?key=&address='
+                var address= cnTimeData[i].mailingAddress.streetAddress1 + "," + cnTimeData[i].mailingAddress.city + "," + cnTimeData[i].mailingAddress.stateOrProvince + "," + cnTimeData[i].mailingAddress.postalCode;
+                console.log(address);
+                var charitiesGeoCode=  geoCodeURL + address;
+                $.ajax({url: charitiesGeoCode,
+                method: "GET"})
+                .then(function(geoLocation) {
+                    console.log(geoLocation)
+                    new google.maps.Marker({
+                        map,
+                        position: geoLocation.results[0].geometry.location,
+                    })
+                });
             } 
-        } 
+        } document.querySelector('#modalBox').append(mapContainer);
     });
-}            
+}      
 
 function timeResultsModal(cnTimeData){
     document.querySelector('#modalBox').innerHTML += `
@@ -285,48 +270,15 @@ function timeResultsModal(cnTimeData){
 }
 
 
-            /* var geoCodeURL = 'https://maps.google.com/maps/api/geocode/json?key=&address='
-            for (let j= 0; j < 5; j++) {
-                var address= charitiesApi[j].mailingAddress.streetAddress1 + "," + charitiesApi[j].mailingAddress.city + "," + charitiesApi[j].mailingAddress.stateOrProvince + "," + charitiesApi[j].mailingAddress.postalCode;
-                var charitiesGeoCode=  geoCodeURL + address;
-                $.ajax({url: charitiesGeoCode,
-                method: "GET"})
-                .then(function(geoLocation) {
-                    
-                    charityGeoCodeResults.push(geoLocation)
-                });
-    
-            }
-            console.log("hi", charityGeoCodeResults)
-            for(let k = 0; k < charityGeoCodeResults.length; k++){
-                let place = charityGeoCodeResults[k];
-                new google.maps.Marker({
-                    map,
-                    ///title// 
-                    position: place.geometry.location,
-    
-                });
-            } */ 
-
-
-
-
-
-    
     $('.burger').on('click', function() {
         $(this).toggleClass('active');
         $('.overlay').toggleClass('burger-open');
     });
-    
-    
     $('nav a').on('click', function() {
         $('.burger').removeClass('active');
         $('.overlay').removeClass('burger-open');
     });
-    
     $("#bloodButton").on("click",getZipBlood);
     $("#foodButton").on("click", getZipFood);
     $("#timeButton").on("click", getZipTime);
-    
-                
-});
+}); 

@@ -453,6 +453,12 @@ img {
     width: auto;
 }
 
+#map {
+    display: block;
+    height: 500px;
+    width: 500px;
+}
+
 /* Favorites Page */
 
 #myFavorites {
