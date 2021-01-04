@@ -248,7 +248,6 @@ function foodResultsModal(cnFoodData){
       <p>Street Address: ${cnFoodData.mailingAddress.streetAddress1}</p>
     </div>`
     $('#modalBox').css("text-align","center")
-
 }
 
 

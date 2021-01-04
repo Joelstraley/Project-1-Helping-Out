@@ -259,9 +259,18 @@ button:hover {
 
 /* Aside Page */
 .content {
-    width: 75%;
-    display: inline-block;
-    margin-left: 20px;
+    /* display: inline-block; */
+    width: auto;
+    height: auto;
+    margin-bottom: 3%;
+    justify-content: center;
+    text-align: center;
+    /* margin-left: 20px; */
+}
+
+.content .helpQuestion {
+    font-size: 35px;
+    padding: 1%;
 }
 
 .asidestyle {
@@ -425,7 +434,7 @@ img {
 #modalBox {
     /* position:fixed; */
     /* display: inline-flex; */
-    width: 800px;
+    width: 100%;
     height: auto;
     padding: 3%;
     z-index:1;
