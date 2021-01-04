@@ -23,13 +23,13 @@
     <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
     <!-- CSS style -->
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="style2.css">
-    <title>Sample</title>
+    <!-- <link rel="stylesheet" href="style2.css"> -->
+    <title>Contact Page</title>
 </head>
 <body>
 
 
-    <header id="home">
+    <header id="home" class="contactHome">
         <!-- toggle function -->
         <div class="burger">
             <span class="bar"></span>  
@@ -40,18 +40,17 @@
             <div class="overlay" id="nav-fixed">
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="myfavorites.html">My Favorites</a></li>
+                    <li><a href="index.html">My Favorites</a></li>
                     <li><a href="aboutus.html">About Us</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
         </nav>
 
-        <main class="content" style="background-color:aliceblue; padding:16px;">
-            <h1>Tell Us About Yourself</h1>
-       
-            <form class="ui large form">
+        <section class="contactContent">
+            <form id="contactForm" class="ui large form">
                 <div>
+                    <h1>Tell Us About Yourself</h1>
                     <div class="two fields">
                       <div class="field">
                         <label>First Name</label>
@@ -70,10 +69,10 @@
                     <label>Your message</label>
                     <input type="text" name="message" placeholder="Message">
                 </div>
-                 <div class="ui submit button">Submit</div>
+                 <div id="contactSubmitBtn" class="ui submit button">Submit</div>
                   </div>
               </form>
-        </main>
+        </section>
  
     </header>
     <script src="app.js"></script>

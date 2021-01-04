@@ -97,6 +97,7 @@ $(document).ready(function(){
 
     function getZipBlood() {
         $(".asidestyle").css("display","none")
+        $("#footer").css("display","none")
         $("#bloodButton").css("display","none")
         $("#foodButton").css("display","none")
         $("#timeButton").css("display","none")
@@ -112,6 +113,7 @@ $(document).ready(function(){
       </div>
       </div>`)
             //change to "Enter City" above if we go with City search for Blood banks
+        //  $("#footer").css("display","none")
          $("#bloodSearchBtn").on('click', function(event){
                 searchInput = $("#bloodZipInput").val();
                     var cnBloodURL = navigatorURL + "&zip=" + searchInput;
@@ -121,6 +123,7 @@ $(document).ready(function(){
 
     function getZipFood() {
         $(".asidestyle").css("display","none")
+        $("#footer").css("display","none")
         $("#bloodButton").css("display","none")
         $("#foodButton").css("display","none")
         $("#timeButton").css("display","none")
@@ -145,6 +148,7 @@ $(document).ready(function(){
 
     function getZipTime() {
         $(".asidestyle").css("display","none")
+        $("#footer").css("display","none")
         $("#bloodButton").css("display","none")
         $("#foodButton").css("display","none")
         $("#timeButton").css("display","none")
@@ -165,7 +169,7 @@ $(document).ready(function(){
             var cnTimeURL = navigatorURL + "&search=social" + "&zip=" + searchInput;
                     runQueryTime(cnTimeURL);
         });
-                };
+    };
 
 
 
@@ -200,9 +204,9 @@ function bloodResultsModal(cnBloodData){
         <div class="scrolling content">
         <div class="box like">
         <button><i class="fas fa-heart"></i></button>
-   <div><h2 id="charityname">${cnBloodData.charityName}</h2></div> </div>
-          <p>${cnBloodData.irsClassification.nteeClassification}</p>
-          <p>Street Address: ${cnBloodData.mailingAddress.streetAddress1}</p>
+        <div><h2 id="charityname">${cnBloodData.charityName}</h2></div></div>
+          <p id="resultBtnFontSizes">${cnBloodData.irsClassification.nteeClassification}</p>
+          <p id="resultBtnFontSizes">Street Address: ${cnBloodData.mailingAddress.streetAddress1}</p>
           </div>`;
           $('#modalBox').css("text-align","center");
 
@@ -244,11 +248,10 @@ function foodResultsModal(cnFoodData){
     <div class="box like">
     <button><i class="fas fa-heart" id="charitySave"></i></button>
 </div><h2 id="charityname">${cnFoodData.charityName}</h2></div></div>
-      <p>${cnFoodData.irsClassification.nteeClassification}</p>
-      <p>Street Address: ${cnFoodData.mailingAddress.streetAddress1}</p>
+      <p id="resultBtnFontSizes">${cnFoodData.irsClassification.nteeClassification}</p>
+      <p id="resultBtnFontSizes">Street Address: ${cnFoodData.mailingAddress.streetAddress1}</p>
     </div>`
     $('#modalBox').css("text-align","center")
-
 }
 
 
@@ -278,8 +281,8 @@ function timeResultsModal(cnTimeData){
 </div><h2 id="charityname">${cnTimeData.charityName}</h2>
 </div>
 </div>
-      <p>${cnTimeData.irsClassification.nteeClassification}</p>
-      <p>Street Address: ${cnTimeData.mailingAddress.streetAddress1}</p>
+      <p id="resultBtnFontSizes">${cnTimeData.irsClassification.nteeClassification}</p>
+      <p id="resultBtnFontSizes">Street Address: ${cnTimeData.mailingAddress.streetAddress1}</p>
     </div>`
     $('#modalBox').css("text-align","center")
 }
