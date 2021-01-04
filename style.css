@@ -428,14 +428,13 @@ img {
 
 .like button:hover {
   color: red;
-}
-
+} 
 
 #modalBox {
     /* position:fixed; */
     /* display: inline-flex; */
     width: 100%;
-    height: auto;
+    height: 100%;
     padding: 3%;
     z-index:1;
     display: none;
@@ -460,6 +459,14 @@ img {
     align-items: center;
     font-size: 15px !important;
     width: auto;
+}
+
+#resultBtnFontSizes {
+    font-size: 18px;
+}
+
+#modalBox .scrolling  {
+    background-color: #f1f4f5;
 }
 
 /* Favorites Page */
