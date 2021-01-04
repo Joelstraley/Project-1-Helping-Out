@@ -299,6 +299,7 @@ button:hover {
     background-color: red;
 }
 
+
 /* COMMENT BACK - TESTING */
 .content, 
 .asideStyle {
@@ -449,8 +450,8 @@ img {
 #modalBox {
     /* position:fixed; */
     /* display: inline-flex; */
-    width: auto !important;
-    height: 90%;
+    width: 100% !important;
+    height: 95%;
     padding: 3%;
     z-index:1;
     display: none;
@@ -554,6 +555,22 @@ img {
 #charityname {
     color: black;
 }
+
+
+/*START CONTACT*/
+.contactContent {
+    display: inline-flex;
+    justify-items: center;
+    justify-content: center;
+    height: 40%;
+}
+/*END CONTACT*/
+
+
+
+
+
+
 
 
 /* RESPONSIVE */
