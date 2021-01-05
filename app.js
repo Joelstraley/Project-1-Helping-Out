@@ -243,11 +243,6 @@ $(document).ready(function(){
     
     } 
     function foodResultsModal(cnFoodData){
-        // $("#modalBox").css("display", "flex")
-        // $(".middleContainer").css("display","none")
-        // var resultsContainer= document.createElement("div")
-        // resultsContainer.id= "resultsContainer"
-        // document.querySelector('#modalBox').append(resultsContainer)
         document.querySelector('#resultsContainer').innerHTML += `
         <div class="scrolling content">
         <div class="box like">
@@ -258,7 +253,7 @@ $(document).ready(function(){
         </div>`
         $('#modalBox').css("text-align","center")
 
-        // document.querySelector('#modalBox').prepend(mapContainer);
+        
     }
 
     
@@ -314,18 +309,13 @@ $(document).ready(function(){
                     $("#timeButton").css("display","block")
                     $("#modalBox").css("display", "none")
                 })
-            // document.querySelector('#modalBox').append(mapContainer);
+            //document.querySelector('#modalBox').append(mapContainer);
         });
 
 
 
     }            
     function timeResultsModal(cnTimeData){
-        // $("#modalBox").css("display", "flex")
-        // $(".middleContainer").css("display","none")
-        // var resultsContainer= document.createElement("div")
-        // resultsContainer.id= "resultsContainer"
-        // document.querySelector('#modalBox').append(resultsContainer)
         document.querySelector('#resultsContainer').innerHTML += `
         <div class="scrolling content">
         <div class="box like">
@@ -337,7 +327,7 @@ $(document).ready(function(){
         <p>Street Address: ${cnTimeData.mailingAddress.streetAddress1}</p>
         </div>`
         $('#modalBox').css("text-align","center")
-        // document.querySelector('#modalBox').prepend(mapContainer);
+        
     }
         
     $('.burger').on('click', function() {
