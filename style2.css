@@ -6,9 +6,6 @@
     box-sizing: border-box;
 }
 
-/* font-family: 'Poppins', sans-serif;
-font-family: 'Lato', sans-serif; */
-
 html {
     font-size: 10px;
     scroll-behavior: smooth;
@@ -56,7 +53,6 @@ header {
     cursor: pointer;
 }
 
-/* needed to create toggle menu */
 .burger .bar,
 .burger .bar::before,
 .burger .bar::after {
@@ -95,7 +91,6 @@ header {
     transform: rotate(-45deg);
 }
 
-/* now i insert the jquery to make this work on app.js */
 .active .bar::before,
 .active .bar::after {
     top: 0;
@@ -134,7 +129,6 @@ nav {
     top: 0;
     bottom: 0;
     z-index: 1;
-    /* instead of all i can use opacity */
     transition: all 650ms;
     transform: scale(0);
     opacity: 0;
@@ -275,18 +269,6 @@ button:hover {
     margin-left: 20px;
 }
 
-.asidestyle {
-    margin-right: 20px;
-    padding: 20px;
-    clear: both;
-    float: right;
-    width: 20%;
-    height: 100%;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    /* background-color: ; */
-}
-
-
 /* Meet the Team */
 .footer {
     display: inline;
@@ -302,15 +284,6 @@ button:hover {
     align-items: center;
     justify-content: center;
   }
-/* .footer {
-    display: flexbox;
-    width: 100%;
-    align-self: center;
-    align-content: center;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-} */
 
 .row {
     justify-content: space-between;
@@ -453,7 +426,6 @@ button:hover {
 
 .result-modal{
 
-/* position:fixed; */
 z-index:1;
 display: show;
 }

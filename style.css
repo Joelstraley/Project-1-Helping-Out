@@ -5,11 +5,6 @@
     box-sizing: border-box;
 }
 
-/* font-family: 'Poppins', sans-serif;
-font-family: 'Lato', sans-serif; */
-
-
-
 html {
     font-size: 10px;
     scroll-behavior: smooth;
@@ -44,7 +39,6 @@ header {
     flex-direction: column;
     text-align: center;
     position: relative;
-    /* background-attachment: fixed; */
 }
 
 /* burger creation here */
@@ -59,7 +53,6 @@ header {
     cursor: pointer;
 }
 
-/* needed to create toggle menu */
 .burger .bar,
 .burger .bar::before,
 .burger .bar::after {
@@ -98,7 +91,6 @@ header {
     transform: rotate(-45deg);
 }
 
-/* now i insert the jquery to make this work on app.js */
 .active .bar::before,
 .active .bar::after {
     top: 0;
@@ -291,6 +283,7 @@ button:hover {
     font-size: 35px;
     padding: 1%;
     width: auto;
+    line-height: 20px;
 }
 
 #asideStyle {
@@ -328,21 +321,6 @@ footer {
     align-items: center;
     justify-content: center;
   }
-
-/* 
-  .horizontal {
-      margin-top: 100vh;
-      padding-top: 100vh;
-  } */
-/* .footer {
-    display: flexbox;
-    width: 100%;
-    align-self: center;
-    align-content: center;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-} */
 
 .stylefooter{
     justify-content: space-between;
@@ -626,24 +604,11 @@ img {
     cursor: pointer;
 }
 
-/* #contactForm {
-    width: 100%;
-} */
-
 form h1 {
     /* width: 100%; */
     font-size: 30px;
     margin-bottom: 5%;
 }
-
-/* #contactForm input {
-    width: 50%;
-    
-} */
-
-/* #contactSubmitBtn {
-
-} */
 
 .field input::placeholder {
     font-size: 15px;
