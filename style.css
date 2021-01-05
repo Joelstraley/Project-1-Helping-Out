@@ -522,6 +522,10 @@ img {
 
 /* Favorites Page */
 
+#favTitle{
+    font-size: 45px;
+}
+
 #myFavorites {
     display: none;
     width: 100%;
@@ -540,6 +544,7 @@ img {
 }
   
 .favBox {
+    display: flex;
     background-color: white;
     border: 1px solid black;
     color: black;
