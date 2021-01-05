@@ -437,7 +437,7 @@ img {
 
   .box {
     background-color :rgb(225, 225, 225);
-    color: #fff;
+    color:black;
     border-radius: 5px;
     padding: 20px;
     font-size: 150%;
@@ -518,6 +518,10 @@ img {
 
 #modalBox .scrolling  {
     background-color: #f1f4f5;
+}
+
+.box-like h2 {
+    color: black;
 }
 
 /* Favorites Page */
