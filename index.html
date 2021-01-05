@@ -38,7 +38,7 @@
             <div class="overlay" id="nav-fixed">
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="myfavorites.html">My Favorites</a></li>
+                    <li><a href="index.html">My Favorites</a></li>
                     <li><a href="aboutus.html">About Us</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
@@ -55,9 +55,9 @@
 
         <div class="media">
             <ul>
-                <li><ion-icon name="logo-facebook"><a href="wwww.google.com"></a></ion-icon></li>
+                <li><ion-icon name="logo-github"></ion-icon></li>
                 <li><ion-icon name="logo-linkedin"></ion-icon></li>
-                <li><ion-icon name="logo-youtube"></ion-icon></li>
+                <li><ion-icon name="logo-facebook"><a href="wwww.google.com"></a></ion-icon></li>
             </ul>
         </div>
     </header>
@@ -68,15 +68,16 @@
     <!-- fancy buttons -->
     
     <main class="content">
-        <h1 style="text-align:center">How would you like to help TODAY?</h1>
+        <p class="helpQuestion" style="text-align:center">How would you like to help today?</p>
         <button class="main-button" id= "bloodButton">
             <h2><i class="large hospital outline icon"></i> Donate Blood</h2>
+            <br>
             <p>
             Each day life-saving blood transfusions are needed in hospitals and emergency treatment facilities across the U.S.
             </p>
          </button>
         <button class="main-button" id= "foodButton">
-            <h2><i class="large coffee icon"></i>Donate Food</h2>
+            <h2><i class="large coffee icon"></i> Donate Food</h2>
             <p>
             We rely on donations to help make food available to families struggling with hunger, and we can’t help without you.
             </p>
@@ -89,8 +90,9 @@
          </button>
 
          <!-- modal   / remove word active-->
+
          <div class="ui modal" id= "modalBox"> 
-            
+
          <div class="wrapper">
             
             <!-- box1 -->
@@ -141,14 +143,14 @@
                         </section>
                     </div>
                 </div>
-                  <div id="map"></div>
+                  <div id="map" class="card"></div>
                 </div>
 
     </main>
 
 
 <!-- Aside Section -->
- <aside class="asidestyle">
+    <!-- <aside id="asideStyle" class="asidestyle">
     
         <section>
             <img src="assets/mainImg2.jpg">
@@ -160,12 +162,10 @@
             <img src="assets/mainImg4.jpg">
         </section>
        
-    </aside>
+    </aside> -->
     <br>
 
-
-
-<section class="myFavorites">
+<section id="myFavorites">
     <div class="favContainer">
         <!-- box1 -->
         <div class="favBox like">
@@ -205,12 +205,11 @@
                 <input type="text" placeholder="Favorites Info">
             </section>
         </div>
-    </div>
-</section>
+    </section>
+<!-- </div> -->
 
     <!-- MEET THE TEAM PT 2 -->
-
-    <footer class="ui footer segment container" style="margin-top:50px;">
+    <footer class="ui footer segment container" style="margin-bottom:50px;">
         <h1>Made with ❤️️ by our Team</h1>
         <div class="ui horizontal list ui container">
             <div class="item">
@@ -241,15 +240,12 @@
                   Back End
                 </div>
               </div>
-        </footer>
+        </footer> 
     <br>
         
 
-   <!--- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-<!-- <<<<<<< HEAD
+   
 
-=======
->>>>>>cc43e8d38bd51aab35521392e0d617d0440786ed -->
 
     
     <script> 
@@ -260,7 +256,7 @@
                 zoom: 3,
             },
         }      
-        const sanFran = { lat: 37.7576171, lng: -122.5776844 }
+        
         let map;
         function initMap(){
             map = new google.maps.Map(document.getElementById("map"), {
@@ -270,11 +266,13 @@
                 panControl: false,
                 zoomControl: false,
                 streetViewControl: false,
-
-            })
-            
+            });
         }
     </script>
+    <!------Google Maps Javascript API libraries URL-------->
+    <script defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDhdaVqsZrmCYF70GkdpO_GH4y0DGhYqE&libraries=places&callback=initMap">
+    </script> 
 
     <!------Google Maps Javascript API libraries URL-------->
     <script async="false"
