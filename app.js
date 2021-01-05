@@ -45,12 +45,9 @@ $(document).ready(function(){
     
         // Establishes the google places api search, this will enable us to look for nearby searches from the input location 
     places = new google.maps.places.PlacesService(map);
-        autocomplete.addListener("place_changed", userSelectCity);
-
-      
-      
-                     
+        autocomplete.addListener("place_changed", userSelectCity); 
     }
+
     function getZipFood() {
         $(".asidestyle").css("display","none")
         $("#bloodButton").css("display","none")
@@ -73,6 +70,7 @@ $(document).ready(function(){
                     runQueryFood(cnFoodURL);
         });
     } 
+
     function getZipTime() {
         $(".asidestyle").css("display","none")
         $("#bloodButton").css("display","none")
@@ -97,6 +95,11 @@ $(document).ready(function(){
         });
 
     }
+
+
+
+
+
 
     // BloodBank Google Places API search, results and map                 
     function userSelectCity() {
@@ -128,11 +131,24 @@ $(document).ready(function(){
                     resultsContainer.innerHTML += 
                     `<div class="scrolling content">
                     <div class="box like">
-                    <button><i class="fas fa-heart"></i></button>
-                    <div><h2 id="charityname">${results[i].name}</h2></div> </div>
-                    <p>Street Address:${results[i].vicinity}</p>
+                    <button><i class="fas fa-heart heartBtn"></i></button>
+                    <div><h2 class="charityname">${results[i].name}</h2></div> </div>
+                    <p class="charityAddress">Street Address:${results[i].vicinity}</p>
                     </div>`;
                     $('#modalBox').css("text-align","center")
+
+                    $('.heartBtn').on("click",function(event){
+                        var parentDiv = event.target.parentElement.parentElement.parentElement
+                        var charityName = parentDiv.querySelector(".charityname").innerText
+                        var charityAddress = parentDiv.querySelector(".charityAddress").innerText
+                        var charityObject = { "name": charityName, "address": charityAddress}
+                        if (localStorage.getItem("Favorites")){
+                            savedFavorites = JSON.parse(localStorage.getItem("Favorites"))
+                        }
+                        savedFavorites.push(charityObject)
+                        localStorage.setItem("Favorites", JSON.stringify(savedFavorites))
+                    });
+
                     let infoWindowContent = `<div>
                     <p>${results[i].name}</p> 
                     <p>${results[i].vicinity}</p></div>`
@@ -170,6 +186,7 @@ $(document).ready(function(){
                 if (status !== "OK") return;
             }
             );
+
         }
     }
 
@@ -177,10 +194,6 @@ $(document).ready(function(){
 
 
             
-
-
-
-        
 
     //CN Food Search with Map
     function runQueryFood(cnFoodURL){
@@ -191,8 +204,6 @@ $(document).ready(function(){
                 var maxCount;
                 if (cnFoodData.length > 5) {
                     maxCount = 5;
-            
-
                 }
                 else{
                     maxCount = cnFoodData.length;
@@ -240,21 +251,35 @@ $(document).ready(function(){
                 })
             //document.querySelector('#modalBox').append(mapContainer);
         });
-
-    
     } 
+
+
     function foodResultsModal(cnFoodData){
         document.querySelector('#resultsContainer').innerHTML += `
         <div class="scrolling content">
-        <div class="box like">
-        <button><i class="fas fa-heart" id="charitySave"></i></button>
-    </div><h2 id="charityname">${cnFoodData.charityName}</h2></div></div>
-        <p>${cnFoodData.irsClassification.nteeClassification}</p>
-        <p>Street Address: ${cnFoodData.mailingAddress.streetAddress1}</p>
+            <div class="box like">
+                <button>
+                    <i class="fas fa-heart heartBtn" id="charitySave"></i>
+                </button>
+            </div>
+                <h2 class="charityName">${cnFoodData.charityName}</h2>
+            <p class="charityClassification">${cnFoodData.irsClassification.nteeClassification ? cnFoodData.irsClassification.nteeClassification : " "}</p>
+            <p class="charityAddress">Street Address: ${cnFoodData.mailingAddress.streetAddress1}</p>
         </div>`
         $('#modalBox').css("text-align","center")
-
-        
+        $('.heartBtn').on("click",function(event){
+            var parentDiv = event.target.parentElement.parentElement.parentElement
+            console.log(parentDiv)
+            var charityName = parentDiv.querySelector(".charityName").innerText
+            var charityClassification = parentDiv.querySelector(".charityClassification") ? parentDiv.querySelector(".charityClassification").innerText : null; 
+            var charityAddress = parentDiv.querySelector(".charityAddress").innerText
+            var charityObject = { "name": charityName, "classification": charityClassification, "address": charityAddress}
+            if (localStorage.getItem("Favorites")){
+                savedFavorites = JSON.parse(localStorage.getItem("Favorites"))
+            }
+            savedFavorites.push(charityObject)
+            localStorage.setItem("Favorites", JSON.stringify(savedFavorites))
+        })
     }
 
     
@@ -267,9 +292,6 @@ $(document).ready(function(){
                         var maxCount;
                         if (cnTimeData.length > 5) {
                             maxCount = 5;
-                    
-
-
                         }
                         else{
                             maxCount = cnTimeData.length;
@@ -299,10 +321,7 @@ $(document).ready(function(){
                                 })
                             });
                             
-                        }
-                        
-                            
-                        
+                        }              
                     } document.querySelector('#modalBox').prepend(mapContainer);
 
                     var xOutBtn=document.createElement('button')
@@ -320,9 +339,7 @@ $(document).ready(function(){
                 }
                 else {
                     " Ooops no results!"
-                }
-
-                
+                }  
         });
     }      
 
@@ -346,14 +363,16 @@ $(document).ready(function(){
             var charityClassification = parentDiv.querySelector(".charityClassification").innerText
             var charityAddress = parentDiv.querySelector(".charityAddress").innerText
             var charityObject = { "name": charityName, "classification": charityClassification, "address": charityAddress}
-            console.log(charityObject)
+            if (localStorage.getItem("Favorites")){
+                savedFavorites = JSON.parse(localStorage.getItem("Favorites"))
+            }
             savedFavorites.push(charityObject)
             localStorage.setItem("Favorites", JSON.stringify(savedFavorites))
         })
     }
 
 
-   
+
 
 
 
@@ -361,10 +380,12 @@ $(document).ready(function(){
         $(this).toggleClass('active');
         $('.overlay').toggleClass('burger-open');
     });
+
     $('nav a').on('click', function() {
         $('.burger').removeClass('active');
         $('.overlay').removeClass('burger-open');
     });
+
     $("#bloodButton").on("click",getZipBlood);
     $("#foodButton").on("click", getZipFood);
     $("#timeButton").on("click", getZipTime);
