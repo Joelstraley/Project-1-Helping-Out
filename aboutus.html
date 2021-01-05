@@ -19,18 +19,21 @@
     <!-- font awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">     
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">  
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+       
     <!-- ION Icons -->
     <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
     <!-- CSS style -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="style2.css">
-    <title>Sample</title>
+    <title>About Us</title>
 </head>
 <body>
 
-
-    <header id="home">
+    <header id="home" style="background: linear-gradient(rgba(16,29,44,.6), rgba(16,29,44,.6)),
+    url(assets/mainImg6.jpg) center no-repeat;">
         <!-- toggle function -->
         <div class="burger">
             <span class="bar"></span>  
@@ -48,10 +51,16 @@
             </div>
         </nav>
 
-        <main class="content" style="background-color:white; padding:16px;">
+        <main style="background-color:white;
+        opacity: 30%; 
+        padding:16px; 
+        margin:60px;  
+        position: relative;
+        opacity: 80%;">
+
           <!-- about us information -->
 
-   <h1>Joing HelpingOut community today!</h1>
+   <h4>Join <span style="color: #61bbe1;">HelpingOut</span> community today!</h4>
          <div class="card">
             <div>
               <h2 class="header">About Us</h2>
@@ -74,41 +83,40 @@
     </div>                                    
 
         </main>
-
-    </header>
-     <!-- MEET THE TEAM PT 2 -->
+           <!-- MEET THE TEAM PT 2 -->
     <footer class="ui footer segment container">
-        <div class="ui horizontal list ui container">
-            <div class="item">
-              <img class="ui mini circular image" src="assets/demopic.png">
-              <div class="content">
-                <a class="ui sub header" href="https://github.com/genis96">Genis</a>
-                Front End
-              </div>
+      <div class="ui horizontal list ui container">
+          <div class="item">
+            <img class="ui mini circular image" src="assets/demopic.png">
+            <div class="content">
+              <a class="ui sub header" href="https://github.com/genis96">Genis</a>
+              Front End
             </div>
-            <div class="item">
-              <img class="ui mini circular image" src="assets/kristina.png">
-              <div class="content">
-                <a class="ui sub header" href="https://github.com/kiankovskaia">Kristina</a>
-                Front End
-              </div>
+          </div>
+          <div class="item">
+            <img class="ui mini circular image" src="assets/kristina.png">
+            <div class="content">
+              <a class="ui sub header" href="https://github.com/kiankovskaia">Kristina</a>
+              Front End
             </div>
-            <div class="item">
-              <img src="assets/demopic.png" class="ui mini circular image">
+          </div>
+          <div class="item">
+            <img src="assets/gillian.jpg" class="ui mini circular image">
+            <div class="content">
+              <a class="ui sub header" href="https://github.com/kiankovskaia">Gillian</a>
+              Back End
+            </div>
+          </div>
+          <div class="item">
+              <img src="assets/joel.png" class="ui mini circular image">
               <div class="content">
-                <a class="ui sub header" href="https://github.com/kiankovskaia">Gillian</a>
+                  <a class="ui sub header" href="https://github.com/GKFitz">Joel</a>
                 Back End
               </div>
             </div>
-            <div class="item">
-                <img src="assets/demopic.png" class="ui mini circular image">
-                <div class="content">
-                    <a class="ui sub header" href="https://github.com/GKFitz">Joel</a>
-                  Back End
-                </div>
-              </div>
-        </footer>
+      </footer>
 
+    </header>
     <script src="app.js"></script>
 </body>
 </html>
