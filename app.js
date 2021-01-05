@@ -28,7 +28,7 @@ $(document).ready(function(){
         <div class="ui action input">
 
         <input type="text" placeholder="Enter City..." id="autocomplete">
-
+        
        
         <button class="ui icon button mainSearchBtns" id="bloodSearchBtn">
           <i class="search icon"></i>
@@ -42,19 +42,14 @@ $(document).ready(function(){
             componentRestrictions: countryRestrict,
         }
     );
-    console.log(autocomplete)
+    
         // Establishes the google places api search, this will enable us to look for nearby searches from the input location 
     places = new google.maps.places.PlacesService(map);
         autocomplete.addListener("place_changed", userSelectCity);
 
       
       
-            //     //change to "Enter City" above if we go with City search for Blood banks
-        //  $("#bloodSearchBtn").on('click', function(event){
-        //         searchInput = $("#bloodZipInput").val();
-        //             var cnBloodURL = navigatorURL + "&zip=" + searchInput;
-        //             runQueryBlood(cnBloodURL);
-        //         });           
+                     
     }
     function getZipFood() {
         $(".asidestyle").css("display","none")
@@ -159,6 +154,19 @@ $(document).ready(function(){
                 }
 
                 document.querySelector('#modalBox').prepend(mapContainer)
+                
+                
+                var xOutBtn=document.createElement('button')
+                xOutBtn.className += "ui right floated primary button closeModal"
+                xOutBtn.innerText= "X"
+                document.querySelector('#modalBox').append(xOutBtn)
+                xOutBtn.addEventListener('click', function() {
+                    $(".asidestyle").css("display","block")
+                    $("#bloodButton").css("display","block")
+                    $("#foodButton").css("display","block")
+                    $("#timeButton").css("display","block")
+                    $("#modalBox").css("display", "none")
+                })
                 if (status !== "OK") return;
             }
             );
@@ -173,37 +181,13 @@ $(document).ready(function(){
 
 
         
-// function bloodResultsModal(cnBloodData){
-//         document.querySelector('#modalBox').innerHTML += `
-//         <div class="scrolling content">
-//         <div class="box like">
-//         <button><i class="fas fa-heart"></i></button>
-//    <div><h2 id="charityname">${cnBloodData.charityName}</h2></div> </div>
-//           <p>${cnBloodData.irsClassification.nteeClassification}</p>
-//           <p>Street Address: ${cnBloodData.mailingAddress.streetAddress1}</p>
-//           </div>`;
-//           $('#modalBox').css("text-align","center")
-//     }
+
     //CN Food Search with Map
     function runQueryFood(cnFoodURL){
-        // $.ajax({url: cnFoodURL,
-        // method: "GET"})
-        // .then(function(cnFoodData){
-        //      // Comment to keep Zip Code box 
-        //      //document.querySelector('#modalBox').innerHTML = "";
-        //     for (let i= 0; i < 5; i++) {
-        //         if(!cnFoodData[i].mailingAddress.streetAddress1.includes('PO')){
-        //             charitiesApi.push(cnFoodData[i])
-        //             foodResultsModal(cnFoodData[i]); 
-        //         } 
-        //     } 
-        // });
         $.ajax({url: cnFoodURL,
         method: "GET"})
 
         .then(function(cnFoodData){
-                // Comment to keep Zip Code box 
-                //document.querySelector('#modalBox').innerHTML = "";
                 var maxCount;
                 if (cnFoodData.length > 5) {
                     maxCount = 5;
@@ -213,7 +197,11 @@ $(document).ready(function(){
                 else{
                     maxCount = cnFoodData.length;
                 }
-            
+            $("#modalBox").css("display", "flex")
+            $(".middleContainer").css("display","none")
+            var resultsContainer= document.createElement("div")
+            resultsContainer.id= "resultsContainer"
+            document.querySelector('#modalBox').append(resultsContainer)
             for (let i= 0; i < maxCount; i++) {
             
                 if(!cnFoodData[i].mailingAddress.streetAddress1.includes('PO')){    
@@ -237,13 +225,26 @@ $(document).ready(function(){
         
 
                 } 
-            } document.querySelector('#modalBox').append(mapContainer);
+            } 
+            document.querySelector('#modalBox').prepend(mapContainer);
+            var xOutBtn=document.createElement('button')
+                xOutBtn.className += "ui right floated primary button closeModal"
+                xOutBtn.innerText= "X"
+                document.querySelector('#modalBox').append(xOutBtn)
+                xOutBtn.addEventListener('click', function() {
+                    $(".asidestyle").css("display","block")
+                    $("#bloodButton").css("display","block")
+                    $("#foodButton").css("display","block")
+                    $("#timeButton").css("display","block")
+                    $("#modalBox").css("display", "none")
+                })
+            //document.querySelector('#modalBox').append(mapContainer);
         });
 
     
     } 
     function foodResultsModal(cnFoodData){
-        document.querySelector('#modalBox').innerHTML += `
+        document.querySelector('#resultsContainer').innerHTML += `
         <div class="scrolling content">
         <div class="box like">
         <button><i class="fas fa-heart" id="charitySave"></i></button>
@@ -252,27 +253,15 @@ $(document).ready(function(){
         <p>Street Address: ${cnFoodData.mailingAddress.streetAddress1}</p>
         </div>`
         $('#modalBox').css("text-align","center")
+
+        
     }
 
     
     function runQueryTime(cnTimeURL){
-        // $.ajax({url: cnTimeURL,
-        // method: "GET"})
-        // .then(function(cnTimeData){
-        //      // Comment to keep Zip Code box 
-        //      //document.querySelector('#modalBox').innerHTML = "";
-        //     for (let i= 0; i < 5; i++) {
-        //         if(!cnTimeData[i].mailingAddress.streetAddress1.includes('PO')){
-        //             charitiesApi.push(cnTimeData[i])
-        //             timeResultsModal(cnTimeData[i]); 
-        //         } 
-        //     } 
-        // });
-        $.ajax({url: cnTimeURL,
+       $.ajax({url: cnTimeURL,
         method: "GET"})
         .then(function(cnTimeData){
-                // Comment to keep Zip Code box 
-                //document.querySelector('#modalBox').innerHTML = "";
                 var maxCount;
                 if (cnTimeData.length > 5) {
                     maxCount = 5;
@@ -280,7 +269,11 @@ $(document).ready(function(){
                 else{
                     maxCount = cnTimeData.length;
                 }
-            
+            $("#modalBox").css("display", "flex")
+            $(".middleContainer").css("display","none")
+            var resultsContainer= document.createElement("div")
+            resultsContainer.id= "resultsContainer"
+            document.querySelector('#modalBox').append(resultsContainer)
             for (let i= 0; i < maxCount; i++) {
             
                 if(!cnTimeData[i].mailingAddress.streetAddress1.includes('PO')){    
@@ -300,14 +293,27 @@ $(document).ready(function(){
                         })
                     });
                 } 
-            } document.querySelector('#modalBox').append(mapContainer);
+            } document.querySelector('#modalBox').prepend(mapContainer);
+
+            var xOutBtn=document.createElement('button')
+                xOutBtn.className += "ui right floated primary button closeModal"
+                xOutBtn.innerText= "X"
+                document.querySelector('#modalBox').append(xOutBtn)
+                xOutBtn.addEventListener('click', function() {
+                    $(".asidestyle").css("display","block")
+                    $("#bloodButton").css("display","block")
+                    $("#foodButton").css("display","block")
+                    $("#timeButton").css("display","block")
+                    $("#modalBox").css("display", "none")
+                })
+            //document.querySelector('#modalBox').append(mapContainer);
         });
     }      
 
    
 
     function timeResultsModal(cnTimeData){
-        document.querySelector('#modalBox').innerHTML += `
+        document.querySelector('#resultsContainer').innerHTML += `
         <div class="scrolling content">
             <div class="box like">
                 <button><i class="fas fa-heart heartBtn"></i></button>
@@ -317,6 +323,7 @@ $(document).ready(function(){
         <p class="charityAddress">Street Address: ${cnTimeData.mailingAddress.streetAddress1}</p>
         </div>`
         $('#modalBox').css("text-align","center")
+
         $('.heartBtn').on("click",function(event){
             var parentDiv = event.target.parentElement.parentElement.parentElement
             var charityName = parentDiv.querySelector(".charityName").innerText
@@ -334,27 +341,6 @@ $(document).ready(function(){
 
 
 
-
-
-            /* var geoCodeURL = 'https://maps.google.com/maps/api/geocode/json?key=&address='
-            for (let j= 0; j < 5; j++) {
-                var address= charitiesApi[j].mailingAddress.streetAddress1 + "," + charitiesApi[j].mailingAddress.city + "," + charitiesApi[j].mailingAddress.stateOrProvince + "," + charitiesApi[j].mailingAddress.postalCode;
-                var charitiesGeoCode=  geoCodeURL + address;
-                $.ajax({url: charitiesGeoCode,
-                method: "GET"})
-                .then(function(geoLocation) {
-                    charityGeoCodeResults.push(geoLocation)
-                });
-            }
-            console.log("hi", charityGeoCodeResults)
-            for(let k = 0; k < charityGeoCodeResults.length; k++){
-                let place = charityGeoCodeResults[k];
-                new google.maps.Marker({
-                    map,
-                    ///title// 
-                    position: place.geometry.location,
-                });
-            } */ 
     $('.burger').on('click', function() {
         $(this).toggleClass('active');
         $('.overlay').toggleClass('burger-open');
@@ -366,6 +352,7 @@ $(document).ready(function(){
     $("#bloodButton").on("click",getZipBlood);
     $("#foodButton").on("click", getZipFood);
     $("#timeButton").on("click", getZipTime);
+    
     
 
 });
