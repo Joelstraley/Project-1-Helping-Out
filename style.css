@@ -408,10 +408,19 @@ img {
 
 }
 #resultsContainer {
-    width: 60%;
+    width: 80%;
 }
 .scrolling.content p {
     margin-bottom: 5px;
+}
+
+.closeModal {
+    position: absolute;
+    top: 0;
+    right:20px;
+    height: 25px;
+    width: 25px;
+    
 }
 .wrapper {
     display: grid;
@@ -474,6 +483,7 @@ img {
     display: none;
     box-shadow: none;
     background-color: #f1f4f5;
+    position: relative;
 }
 
 
