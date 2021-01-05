@@ -29,7 +29,10 @@ a {
     list-style: none;
 }
 
-
+h4 {
+    font-size:40px;
+    font-family: 'Shadows Into Light', cursive;
+}
 /* Nav + Home */
 header {
     display: flex;
