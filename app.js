@@ -5,6 +5,7 @@ $(document).ready(function(){
     let marker= [];
     let charitiesApi= [];
     let charityGeoCodeResults = []; 
+    let savedFavorites = [];
     let mapContainer = document.getElementById("map");
     //*  CHARITY NAVIGATOR 
     var cnAPIID = "29acb795";
@@ -275,9 +276,6 @@ $(document).ready(function(){
                 var maxCount;
                 if (cnTimeData.length > 5) {
                     maxCount = 5;
-            
-
-
                 }
                 else{
                     maxCount = cnTimeData.length;
@@ -289,7 +287,6 @@ $(document).ready(function(){
                     timeResultsModal(cnTimeData[i]);
                     var geoCodeURL = 'https://maps.google.com/maps/api/geocode/json?key=AIzaSyCDhdaVqsZrmCYF70GkdpO_GH4y0DGhYqE&address='
                     var address= cnTimeData[i].mailingAddress.streetAddress1 + "," + cnTimeData[i].mailingAddress.city + "," + cnTimeData[i].mailingAddress.stateOrProvince + "," + cnTimeData[i].mailingAddress.postalCode;
-                    
                     var charitiesGeoCode=  geoCodeURL + address;
                     $.ajax({url: charitiesGeoCode,
                     method: "GET"})
@@ -305,23 +302,40 @@ $(document).ready(function(){
                 } 
             } document.querySelector('#modalBox').append(mapContainer);
         });
+    }      
 
+   
 
-
-    }            
     function timeResultsModal(cnTimeData){
         document.querySelector('#modalBox').innerHTML += `
         <div class="scrolling content">
-        <div class="box like">
-        <button><i class="fas fa-heart"></i></button>
-    </div><h2 id="charityname">${cnTimeData.charityName}</h2>
-    </div>
-    </div>
-        <p>${cnTimeData.irsClassification.nteeClassification}</p>
-        <p>Street Address: ${cnTimeData.mailingAddress.streetAddress1}</p>
+            <div class="box like">
+                <button><i class="fas fa-heart heartBtn"></i></button>
+            </div>
+            <h2 class="charityName">${cnTimeData.charityName}</h2>
+        <p class="charityClassification">${cnTimeData.irsClassification.nteeClassification}</p>
+        <p class="charityAddress">Street Address: ${cnTimeData.mailingAddress.streetAddress1}</p>
         </div>`
         $('#modalBox').css("text-align","center")
+        $('.heartBtn').on("click",function(event){
+            var parentDiv = event.target.parentElement.parentElement.parentElement
+            var charityName = parentDiv.querySelector(".charityName").innerText
+            var charityClassification = parentDiv.querySelector(".charityClassification").innerText
+            var charityAddress = parentDiv.querySelector(".charityAddress").innerText
+            var charityObject = { "name": charityName, "classification": charityClassification, "address": charityAddress}
+            console.log(charityObject)
+            savedFavorites.push(charityObject)
+            localStorage.setItem("Favorites", JSON.stringify(savedFavorites))
+        })
     }
+
+
+   
+
+
+
+
+
             /* var geoCodeURL = 'https://maps.google.com/maps/api/geocode/json?key=&address='
             for (let j= 0; j < 5; j++) {
                 var address= charitiesApi[j].mailingAddress.streetAddress1 + "," + charitiesApi[j].mailingAddress.city + "," + charitiesApi[j].mailingAddress.stateOrProvince + "," + charitiesApi[j].mailingAddress.postalCode;
