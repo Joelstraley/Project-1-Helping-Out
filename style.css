@@ -8,6 +8,8 @@
 /* font-family: 'Poppins', sans-serif;
 font-family: 'Lato', sans-serif; */
 
+
+
 html {
     font-size: 10px;
     scroll-behavior: smooth;
@@ -27,7 +29,10 @@ a {
     list-style: none;
 }
 
-
+h4 {
+    font-size:40px;
+    font-family: 'Shadows Into Light', cursive;
+}
 /* Nav + Home */
 header {
     display: flex;
@@ -362,7 +367,7 @@ footer {
 img {
     max-width: 100%;
     height: auto;
-    margin-top: 20px;
+    /* margin-top: 20px; */
 }
   
 .container {

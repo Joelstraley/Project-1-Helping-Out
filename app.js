@@ -5,6 +5,7 @@ $(document).ready(function(){
     let marker= [];
     let charitiesApi= [];
     let charityGeoCodeResults = []; 
+    let savedFavorites = [];
     let mapContainer = document.getElementById("map");
     //*  CHARITY NAVIGATOR 
     var cnAPIID = "29acb795";
@@ -261,6 +262,7 @@ $(document).ready(function(){
        $.ajax({url: cnTimeURL,
         method: "GET"})
         .then(function(cnTimeData){
+
                 if (cnTimeData.length > 0) {
                         var maxCount;
                         if (cnTimeData.length > 5) {
@@ -314,31 +316,47 @@ $(document).ready(function(){
                             $("#timeButton").css("display","block")
                             $("#modalBox").css("display", "none")
                         })
+
                 }
                 else {
                     " Ooops no results!"
                 }
+
                 
         });
+    }      
 
+   
 
-
-    }            
     function timeResultsModal(cnTimeData){
         document.querySelector('#resultsContainer').innerHTML += `
         <div class="scrolling content">
-        <div class="box like">
-        <button><i class="fas fa-heart"></i></button>
-    </div><h2 id="charityname">${cnTimeData.charityName}</h2>
-    </div>
-    </div>
-        <p>${cnTimeData.irsClassification.nteeClassification}</p>
-        <p>Street Address: ${cnTimeData.mailingAddress.streetAddress1}</p>
+            <div class="box like">
+                <button><i class="fas fa-heart heartBtn"></i></button>
+            </div>
+            <h2 class="charityName">${cnTimeData.charityName}</h2>
+        <p class="charityClassification">${cnTimeData.irsClassification.nteeClassification}</p>
+        <p class="charityAddress">Street Address: ${cnTimeData.mailingAddress.streetAddress1}</p>
         </div>`
         $('#modalBox').css("text-align","center")
-        
+
+        $('.heartBtn').on("click",function(event){
+            var parentDiv = event.target.parentElement.parentElement.parentElement
+            var charityName = parentDiv.querySelector(".charityName").innerText
+            var charityClassification = parentDiv.querySelector(".charityClassification").innerText
+            var charityAddress = parentDiv.querySelector(".charityAddress").innerText
+            var charityObject = { "name": charityName, "classification": charityClassification, "address": charityAddress}
+            console.log(charityObject)
+            savedFavorites.push(charityObject)
+            localStorage.setItem("Favorites", JSON.stringify(savedFavorites))
+        })
     }
-        
+
+
+   
+
+
+
     $('.burger').on('click', function() {
         $(this).toggleClass('active');
         $('.overlay').toggleClass('burger-open');
