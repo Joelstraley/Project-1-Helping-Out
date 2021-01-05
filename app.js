@@ -10,6 +10,9 @@ $(document).ready(function(){
     var cnAPIID = "29acb795";
     var cnAPIKEY = "04b276e51b8c538e2a38bb533518a83d";
     var navigatorURL = "https://api.data.charitynavigator.org/v2/Organizations?app_id=" + cnAPIID + "&app_key=" + cnAPIKEY; 
+ searchResults_and_map
+
+  main
 /*   function runQuery(cnURL){
         $.ajax({url: cnURL,
         method: "GET"})
@@ -76,9 +79,15 @@ $(document).ready(function(){
             }
         })
     } 
+
  */
     function getZipBlood() {
         $(".asidestyle").css("display","none")
+
+    
+
+ 
+
         $("#bloodButton").css("display","none")
         $("#foodButton").css("display","none")
         $("#timeButton").css("display","none")
@@ -87,12 +96,16 @@ $(document).ready(function(){
         <div class="column"></div>
         <div class="column">
         <div class="ui action input">
+ searchResults_and_map
         <input type="text" placeholder="Enter City..." id="autocomplete">
+
+       
         <button class="ui icon button mainSearchBtns" id="bloodSearchBtn">
           <i class="search icon"></i>
         </button>
       </div>
       </div>`)
+ searchResults_and_map
     autocomplete = new google.maps.places.Autocomplete(
         document.getElementById("autocomplete"),{
             types: ["(cities)"],
@@ -115,6 +128,9 @@ $(document).ready(function(){
     }
     function getZipFood() {
         $(".asidestyle").css("display","none")
+
+        
+
         $("#bloodButton").css("display","none")
         $("#foodButton").css("display","none")
         $("#timeButton").css("display","none")
@@ -137,6 +153,10 @@ $(document).ready(function(){
     } 
     function getZipTime() {
         $(".asidestyle").css("display","none")
+
+
+    
+
         $("#bloodButton").css("display","none")
         $("#foodButton").css("display","none")
         $("#timeButton").css("display","none")
@@ -157,6 +177,7 @@ $(document).ready(function(){
             var cnTimeURL = navigatorURL + "&search=social" + "&zip=" + searchInput;
                     runQueryTime(cnTimeURL);
         });
+
     }
 
     // BloodBank Google Places API search, results and map                 
@@ -221,6 +242,9 @@ $(document).ready(function(){
         }
     }
 
+    
+
+
             
 
 
@@ -253,6 +277,7 @@ $(document).ready(function(){
         // });
         $.ajax({url: cnFoodURL,
         method: "GET"})
+
         .then(function(cnFoodData){
                 // Comment to keep Zip Code box 
                 //document.querySelector('#modalBox').innerHTML = "";
@@ -285,9 +310,13 @@ $(document).ready(function(){
                             position: geoLocation.results[0].geometry.location,
                         })
                     });
+
+        
+
                 } 
             } document.querySelector('#modalBox').append(mapContainer);
         });
+
     
     } 
     function foodResultsModal(cnFoodData){
@@ -301,6 +330,7 @@ $(document).ready(function(){
         </div>`
         $('#modalBox').css("text-align","center")
     }
+
     
     function runQueryTime(cnTimeURL){
         // $.ajax({url: cnTimeURL,
@@ -324,6 +354,7 @@ $(document).ready(function(){
                 if (cnTimeData.length > 5) {
                     maxCount = 5;
             
+
 
                 }
                 else{
@@ -352,6 +383,7 @@ $(document).ready(function(){
                 } 
             } document.querySelector('#modalBox').append(mapContainer);
         });
+
 
 
     }            
@@ -399,4 +431,5 @@ $(document).ready(function(){
     $("#foodButton").on("click", getZipFood);
     $("#timeButton").on("click", getZipTime);
     
+
 });

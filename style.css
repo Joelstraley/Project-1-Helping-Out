@@ -1,4 +1,3 @@
-*,
 *::before,
 *::after {
     margin: 0;
@@ -208,18 +207,6 @@ nav {
     position: relative;
 }
 
-.main-btn {
-    font-size: 1.5rem;
-    border: 2px solid #788a93;
-    background-color: #469dc2;
-    color: #eee;
-    padding: 1rem 2rem;
-    letter-spacing: 3px;
-    margin-right: -3px;
-    position: relative;
-    margin-top: 2.5rem;
-}
-
 .media {
     position: absolute;
     right: -10px;
@@ -253,14 +240,13 @@ nav {
 
 /* style for main buttons */
 
-.main-button{
+.main-button {
     border-radius: 12px;
     width: 90%;
     background-color: #469dc2;
     padding: 45px;
     text-align:center;
     margin: 16px;
-    margin-left: 70px;
     border: 1px;
     opacity: 80%;
 }
@@ -268,46 +254,76 @@ button:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
   }
 
+.main-button h2 {
+    font-size: 25px;
+}
+
+.main-button p {
+    line-height: 30px;
+    font-size: 20px;
+}
+
+.main-button i {
+    margin-right: 1%;
+    margin-left: 1%;
+    margin-bottom: 1%;
+}
+
 /* Nav + Home End */
 
 /* Aside Page */
 .content {
-    width: 75%;
-    display: inline-block;
-    margin-left: 20px;
+    /* display: inline-block; */
+    width: auto;
+    height: auto;
+    margin-bottom: 3%;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
 }
 
-.asidestyle {
+.content .helpQuestion {
+    font-size: 35px;
+    padding: 1%;
+    width: auto;
+}
+
+#asideStyle {
     margin-right: 20px;
     padding: 20px;
     clear: both;
     float: right;
     width: 20%;
-    height: 100%;
+    height: 30%;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    /* background-color: ; */
+    background-color: red;
 }
 
+
+/* COMMENT BACK - TESTING */
 .content, 
-.asidestyle {
+.asideStyle {
     margin-bottom: 0%;
 }
 
 /* Meet the Team */
-.footer {
-    display: inline;
+footer {
+    display: inline-flex;
     background-color: #212121;
     position: inherit;
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 15px 0;
+    height: auto;
+    margin: 44px;
+    /* padding: 15px 0; */
     align-self: center;
     align-content: center;
     text-align: center;
     align-items: center;
     justify-content: center;
   }
+
 /* 
   .horizontal {
       margin-top: 100vh;
@@ -446,26 +462,59 @@ img {
 
 .like button:hover {
   color: red;
+} 
+
+#modalBox {
+    /* position:fixed; */
+    /* display: inline-flex; */
+    width: 100% !important;
+    height: 95%;
+    padding: 3%;
+    z-index:1;
+    display: none;
+    box-shadow: none;
+    background-color: #f1f4f5;
 }
 
 
-#modalBox{
-    /* position:fixed; */
-    z-index:1;
-   display: none;
-    }
-    
+#modalBox input {
+    font-size: 18px;
+    /* height: auto; */
+}
+
+#modalBox input::placeholder {
+    font-size: 15px;
+    text-align: center;
+    color: #4d4d4d;    
+}
+
+
+.mainSearchBtns {
+    display: inline-flex;
+    text-align: center;
+    align-items: center;
+    font-size: 15px !important;
+    width: auto;
+}
+
+#resultBtnFontSizes {
+    font-size: 18px;
+}
+
+#modalBox .scrolling  {
+    background-color: #f1f4f5;
+}
 
 /* Favorites Page */
 
-.myFavorites {
+#myFavorites {
+    display: none;
     width: 100%;
     height: 80%;
-    display: flex;
+    display: none;
     justify-content: center;
-    background-color: #61bbe1;
+    background-color: #f1f4f5;
     margin-bottom: 3%;
-
 }
 
 .favContainer {
@@ -509,18 +558,74 @@ img {
 .favBox input {
     display: flex;
     width: 100%;
-    height: 100px;
+    height: 80px;
     justify-content: flex-start;
     align-self: flex-start;
     border: 3px solid #555;
 }
 
-/* input[type=text]:focus {
-  } */
-
 .favBox input::placeholder {
     padding-left: 30px;
 }
+
+
+#charityname {
+    color: black;
+}
+
+
+/*START CONTACT*/
+.contactHome {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(rgba(16,29,44,.6), rgba(16,29,44,.6)),
+                url(assets/mainImg.jpg) center no-repeat;
+    background-size: cover;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    opacity: 0.9;
+}
+
+.contactContent {
+    display: inline-flex;
+    background-color: #9fb8ce;
+    opacity: 0.9;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    width: 80%;
+    height: 55%;
+    margin-top: 5%;
+    cursor: pointer;
+}
+
+/* #contactForm {
+    width: 100%;
+} */
+
+form h1 {
+    /* width: 100%; */
+    font-size: 30px;
+    margin-bottom: 5%;
+}
+
+/* #contactForm input {
+    width: 50%;
+    
+} */
+
+/* #contactSubmitBtn {
+
+} */
+
+.field input::placeholder {
+    font-size: 15px;
+    text-align: center;
+}
+
+/*END CONTACT*/
 
 
 /* RESPONSIVE */
@@ -561,5 +666,4 @@ img {
     }
 }
 
-/*  */
 
