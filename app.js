@@ -10,84 +10,13 @@ $(document).ready(function(){
     var cnAPIID = "29acb795";
     var cnAPIKEY = "04b276e51b8c538e2a38bb533518a83d";
     var navigatorURL = "https://api.data.charitynavigator.org/v2/Organizations?app_id=" + cnAPIID + "&app_key=" + cnAPIKEY; 
- searchResults_and_map
-
-  main
-/*   function runQuery(cnURL){
-        $.ajax({url: cnURL,
-        method: "GET"})
-        .then(function(cnData){
-            orgname.text(cnData[0].charityName);
-            for (let i= 0; i < cnData.length; i++) {
-                if(!cnData[i].mailingAddress.streetAddress1.includes('PO')){
-                    charitiesApi.push(cnData[i])
-                }
-            } 
-            var geoCodeURL = 'https://maps.google.com/maps/api/geocode/json?key=&address='
-            for (let j= 0; j < 5; j++) {
-                var address= charitiesApi[j].mailingAddress.streetAddress1 + "," + charitiesApi[j].mailingAddress.city + "," + charitiesApi[j].mailingAddress.stateOrProvince + "," + charitiesApi[j].mailingAddress.postalCode;
-                var charitiesGeoCode=  geoCodeURL + address;
-                $.ajax({url: charitiesGeoCode,
-                method: "GET"})
-                .then(function(geoLocation) {
-                    charityGeoCodeResults.push(geoLocation)
-                });
-            }
-            console.log("hi", charityGeoCodeResults)
-            for(let k = 0; k < charityGeoCodeResults.length; k++){
-                let place = charityGeoCodeResults[k];
-                console.log(place.geometry.location)
-                new google.maps.Marker({
-                    map,
-                    ///title// 
-                    position: place.geometry.location,    
-                });
-            }
-        });
-} 
-// Google map
-   // let map;
-    const sanFran= { lat: 37.7576171, lng: -122.5776844 }
-    function initMap() {
-        map = new google.maps.Map($("#map"), {
-            center: sanFran,
-            zoom: 10,
-        });
-        // Info windows will shows the list of results from the search
-        infoWindow = new google.maps.InfoWindow({
-            content: $("#info-content"),
-        });
-        // for the search box to help the user complete their cities search
-        autocomplete = new google.maps.places.Autocomplete(
-        $("#autocomplete"),
-            {
-                types: ["(cities)"],
-                componentRestrictions: countryRestrict,
-            }
-        );
-       //static location search     
-        const service = new google.maps.places.PlacesService(map);
-        service.nearbySearch({location: sanFran, radius: 16093.4, type: "hospital", keyword: "bloodbank", setting: "open now"},function (results, status, pagination){
-            console.log(results)
-            for(let i = 0; i < results.length; i++){
-                let place = results[i]
-                new google.maps.Marker({
-                    map,
-                    title: place.name,
-                    position: place.geometry.location,
-                });
-            }
-        })
-    } 
-
- */
-    function getZipBlood() {
-        $(".asidestyle").css("display","none")
-
-    
-
  
 
+
+
+ 
+    function getZipBlood() {
+        $(".asidestyle").css("display","none")
         $("#bloodButton").css("display","none")
         $("#foodButton").css("display","none")
         $("#timeButton").css("display","none")
@@ -96,7 +25,7 @@ $(document).ready(function(){
         <div class="column"></div>
         <div class="column">
         <div class="ui action input">
- searchResults_and_map
+
         <input type="text" placeholder="Enter City..." id="autocomplete">
 
        
@@ -105,7 +34,7 @@ $(document).ready(function(){
         </button>
       </div>
       </div>`)
- searchResults_and_map
+ 
     autocomplete = new google.maps.places.Autocomplete(
         document.getElementById("autocomplete"),{
             types: ["(cities)"],
@@ -128,9 +57,6 @@ $(document).ready(function(){
     }
     function getZipFood() {
         $(".asidestyle").css("display","none")
-
-        
-
         $("#bloodButton").css("display","none")
         $("#foodButton").css("display","none")
         $("#timeButton").css("display","none")
@@ -153,10 +79,6 @@ $(document).ready(function(){
     } 
     function getZipTime() {
         $(".asidestyle").css("display","none")
-
-
-    
-
         $("#bloodButton").css("display","none")
         $("#foodButton").css("display","none")
         $("#timeButton").css("display","none")
