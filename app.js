@@ -105,7 +105,7 @@ $(document).ready(function(){
         if (place.geometry) {
             cityLatLng = place.geometry.location;
             map.panTo(place.geometry.location);
-            map.setZoom(15);
+            map.setZoom(8);
             const service = new google.maps.places.PlacesService(map);
             // Perform a nearby search with search parameters; user location and bloodbanks
             service.nearbySearch(
@@ -215,7 +215,7 @@ $(document).ready(function(){
                     .then(function(geoLocation) {
                         console.log(geoLocation)
                         map.panTo(geoLocation.results[0].geometry.location);
-                        map.setZoom(15);
+                        map.setZoom(8);
                         new google.maps.Marker({
                             map,
                             position: geoLocation.results[0].geometry.location,
@@ -262,51 +262,67 @@ $(document).ready(function(){
        $.ajax({url: cnTimeURL,
         method: "GET"})
         .then(function(cnTimeData){
-                var maxCount;
-                if (cnTimeData.length > 5) {
-                    maxCount = 5;
-                }
-                else{
-                    maxCount = cnTimeData.length;
-                }
-            $("#modalBox").css("display", "flex")
-            $(".middleContainer").css("display","none")
-            var resultsContainer= document.createElement("div")
-            resultsContainer.id= "resultsContainer"
-            document.querySelector('#modalBox').append(resultsContainer)
-            for (let i= 0; i < maxCount; i++) {
-            
-                if(!cnTimeData[i].mailingAddress.streetAddress1.includes('PO')){    
-                    timeResultsModal(cnTimeData[i]);
-                    var geoCodeURL = 'https://maps.google.com/maps/api/geocode/json?key=AIzaSyCDhdaVqsZrmCYF70GkdpO_GH4y0DGhYqE&address='
-                    var address= cnTimeData[i].mailingAddress.streetAddress1 + "," + cnTimeData[i].mailingAddress.city + "," + cnTimeData[i].mailingAddress.stateOrProvince + "," + cnTimeData[i].mailingAddress.postalCode;
-                    var charitiesGeoCode=  geoCodeURL + address;
-                    $.ajax({url: charitiesGeoCode,
-                    method: "GET"})
-                    .then(function(geoLocation) {
-                        console.log(geoLocation)
-                        map.panTo(geoLocation.results[0].geometry.location);
-                        map.setZoom(15);
-                        new google.maps.Marker({
-                            map,
-                            position: geoLocation.results[0].geometry.location,
-                        })
-                    });
-                } 
-            } document.querySelector('#modalBox').prepend(mapContainer);
 
-            var xOutBtn=document.createElement('button')
-                xOutBtn.className += "ui right floated primary button closeModal"
-                xOutBtn.innerText= "X"
-                document.querySelector('#modalBox').append(xOutBtn)
-                xOutBtn.addEventListener('click', function() {
-                    $(".asidestyle").css("display","block")
-                    $("#bloodButton").css("display","block")
-                    $("#foodButton").css("display","block")
-                    $("#timeButton").css("display","block")
-                    $("#modalBox").css("display", "none")
-                })
-            //document.querySelector('#modalBox').append(mapContainer);
+                if (cnTimeData.length > 0) {
+                        var maxCount;
+                        if (cnTimeData.length > 5) {
+                            maxCount = 5;
+                    
+
+
+                        }
+                        else{
+                            maxCount = cnTimeData.length;
+                        }
+                    $("#modalBox").css("display", "flex")
+                    $(".middleContainer").css("display","none")
+                    var resultsContainer= document.createElement("div")
+                    resultsContainer.id= "resultsContainer"
+                    document.querySelector('#modalBox').append(resultsContainer)
+                    for (let i= 0; i < maxCount; i++) {
+                        
+                        if(!cnTimeData[i].mailingAddress.streetAddress1.includes('PO')){    
+                            timeResultsModal(cnTimeData[i]);
+                            var geoCodeURL = 'https://maps.google.com/maps/api/geocode/json?key=AIzaSyCDhdaVqsZrmCYF70GkdpO_GH4y0DGhYqE&address='
+                            var address= cnTimeData[i].mailingAddress.streetAddress1 + "," + cnTimeData[i].mailingAddress.city + "," + cnTimeData[i].mailingAddress.stateOrProvince + "," + cnTimeData[i].mailingAddress.postalCode;
+                        
+                            var charitiesGeoCode=  geoCodeURL + address;
+                            $.ajax({url: charitiesGeoCode,
+                            method: "GET"})
+                            .then(function(geoLocation) {
+                                console.log(geoLocation)
+                                map.panTo(geoLocation.results[0].geometry.location);
+                                map.setZoom(8);
+                                new google.maps.Marker({
+                                    map,
+                                    position: geoLocation.results[0].geometry.location,
+                                })
+                            });
+                            
+                        }
+                        
+                            
+                        
+                    } document.querySelector('#modalBox').prepend(mapContainer);
+
+                    var xOutBtn=document.createElement('button')
+                        xOutBtn.className += "ui right floated primary button closeModal"
+                        xOutBtn.innerText= "X"
+                        document.querySelector('#modalBox').append(xOutBtn)
+                        xOutBtn.addEventListener('click', function() {
+                            $(".asidestyle").css("display","block")
+                            $("#bloodButton").css("display","block")
+                            $("#foodButton").css("display","block")
+                            $("#timeButton").css("display","block")
+                            $("#modalBox").css("display", "none")
+                        })
+
+                }
+                else {
+                    " Ooops no results!"
+                }
+
+                
         });
     }      
 
