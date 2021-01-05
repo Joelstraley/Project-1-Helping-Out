@@ -395,7 +395,24 @@ img {
 .button:hover {
     background-color: #555;
 }
+/* gkf Blood map modal*/
+#map {
+    width: 100%;
+    height: 500px;
+  }
+#charityname {
+    color: red;
+}
+.ui.modal .scrolling.content {
+    overflow:hidden !important;
 
+}
+#resultsContainer {
+    width: 60%;
+}
+.scrolling.content p {
+    margin-bottom: 5px;
+}
 .wrapper {
     display: grid;
     grid-gap: 10px;
