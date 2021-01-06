@@ -25,6 +25,22 @@ THROUGH APIs and features that print out names of organizations who need volunte
 
 # Screenshots
 Your Journey begins here: 
+- Main Page: 
+![alt text](https://github.com/Joelstraley/Project-1-Helping-Out/blob/main/assets/Screenshot-Main-header.png)
+![alt text](https://github.com/Joelstraley/Project-1-Helping-Out/blob/main/assets/Screenshot-Main-buttons%20and%20footer.png)
+- Charity Search
+![alt text](https://github.com/Joelstraley/Project-1-Helping-Out/blob/main/assets/Screenshot-Main-zip%20code.png)
+- Charity Results
+![alt text](https://github.com/Joelstraley/Project-1-Helping-Out/blob/main/assets/Screenshot-Main-results.png)
+- Saved Favorites
+![alt text](https://github.com/Joelstraley/Project-1-Helping-Out/blob/main/assets/Screenshot-%20Favorites.png)
+- About Us Page
+![alt text](https://github.com/Joelstraley/Project-1-Helping-Out/blob/main/assets/Screenshot%20-%20About%20Us.png)
+- Contact Page
+![alt text](https://github.com/Joelstraley/Project-1-Helping-Out/blob/main/assets/Screenshot-%20Contact.png)
+
+
+
 
 
 # Packages, APIs, and Technologies:
