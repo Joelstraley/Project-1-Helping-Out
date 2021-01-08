@@ -6,6 +6,8 @@ Live at: https://joelstraley.github.io/Project-1-Helping-Out/
 
 Repo: https://github.com/Joelstraley/Project-1-Helping-Out
 
+Presentation: https://drive.google.com/file/d/1X7ybKYHcX7tXgeSGtkNdFNvxfDdRII64/view?usp=sharing
+
 
 # Description
 HelpingOut was created to help connecting people who want to help their local communities, with local foodbank and blood drive organizations that need their help. Whether the user wants to become a blood donor or volunteer for food banks and other organizations in their area, we want to help make it easier for them to do it.<br />
